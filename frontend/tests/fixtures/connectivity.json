@@ -1,0 +1,10 @@
+{
+  "config": {
+    "schema_version": 1,
+    "check_urls": [
+      "https://video.example.invalid/health",
+      "https://shop.example.invalid/health"
+    ]
+  },
+  "max_urls": 10
+}

@@ -1,0 +1,2 @@
+# Keep the commented CRLF fixture byte-exact for routing download/restore tests.
+frontend/tests/fixtures/routing-original.jsonc -text

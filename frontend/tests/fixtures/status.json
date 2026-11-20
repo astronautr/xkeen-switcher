@@ -1,0 +1,221 @@
+{
+  "operation": null,
+  "router_updates": {"available": []},
+  "active_code": "fi",
+  "active_entry_code": null,
+  "active_route": {
+    "mode": "single",
+    "exit_code": "fi",
+    "exit_name": "Finland 🇫🇮",
+    "entry_code": null,
+    "entry_name": null
+  },
+  "active_missing_codes": [],
+  "active_health": null,
+  "server_route": {
+    "device_id": null,
+    "device_name": null,
+    "mode": "unknown",
+    "code": null,
+    "main_code": "fi",
+    "follows_main": false,
+    "main_route": {
+      "mode": "single",
+      "exit_code": "fi",
+      "exit_name": "Finland 🇫🇮",
+      "entry_code": null,
+      "entry_name": null
+    },
+    "location": {
+      "code": null,
+      "name": null,
+      "host": null,
+      "port": null,
+      "protocol": null
+    },
+    "identified": false,
+    "unavailable": false,
+    "key": "3f6e9d43d1000b04d123a342de12a8cfec6f836a550b3d8e2da05841dac876a0",
+    "check": null
+  },
+  "active_status": "ok",
+  "xkeen_state": "running",
+  "xkeen_stop_cause": null,
+  "subscription_url": "https://subscription.example.invalid/fixture",
+  "last_update_at": "2026-11-17T08:55:00+00:00",
+  "last_update_status": "ok",
+  "pending_reapply_code": null,
+  "pending_reapply_entry_code": null,
+  "pending_reapply_since": null,
+  "pending_update_kind": null,
+  "auto_update": {
+    "enabled": true,
+    "mode": "daily",
+    "daily_time": "04:30",
+    "timezone": "Europe/Moscow",
+    "interval_minutes": 1440,
+    "sni_daily": false,
+    "next_apply_at": null
+  },
+  "failover": {
+    "enabled": false,
+    "suspended": false,
+    "suspension_reason": null,
+    "active": false,
+    "since": null,
+    "whitelist": [],
+    "auto_failback": false,
+    "auto_stop_on_total_failure": false,
+    "auto_stop_suspended_for_devices": false,
+    "auto_restart_on_recovery": false
+  },
+  "route_checks": null,
+  "route_check_conditions_hash": "8505c88d832a9ca2825bb3378022620fd2046a62c0bd16fd4270f5be75c68a26",
+  "route_check_run": null,
+  "health_updated_at": null,
+  "available": [
+    {
+      "code": "fi",
+      "name": "Finland 🇫🇮",
+      "protocol": "vless",
+      "host": "fi.example.invalid",
+      "port": 443,
+      "uuid": "",
+      "flow": "",
+      "network": "",
+      "security": "",
+      "sni": "",
+      "pbk": "",
+      "sid": "",
+      "spx": "/",
+      "path": "",
+      "mode": "",
+      "host_hdr": "",
+      "fingerprint": "chrome",
+      "outbound": {
+        "tag": "proxy",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "fi.example.invalid",
+              "port": 443,
+              "users": [
+                {
+                  "id": "11111111-1111-4111-8111-111111111111",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "tcp",
+          "security": "reality",
+          "realitySettings": {
+            "serverName": "example.invalid",
+            "publicKey": "synthetic",
+            "shortId": "abcd"
+          }
+        }
+      },
+      "health": null
+    },
+    {
+      "code": "de",
+      "name": "Germany 🇩🇪",
+      "protocol": "vless",
+      "host": "de.example.invalid",
+      "port": 443,
+      "uuid": "",
+      "flow": "",
+      "network": "",
+      "security": "",
+      "sni": "",
+      "pbk": "",
+      "sid": "",
+      "spx": "/",
+      "path": "",
+      "mode": "",
+      "host_hdr": "",
+      "fingerprint": "chrome",
+      "outbound": {
+        "tag": "proxy",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "de.example.invalid",
+              "port": 443,
+              "users": [
+                {
+                  "id": "11111111-1111-4111-8111-111111111111",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "tcp",
+          "security": "reality",
+          "realitySettings": {
+            "serverName": "example.invalid",
+            "publicKey": "synthetic",
+            "shortId": "abcd"
+          }
+        }
+      },
+      "health": null
+    },
+    {
+      "code": "se",
+      "name": "Sweden 🇸🇪",
+      "protocol": "vless",
+      "host": "se.example.invalid",
+      "port": 443,
+      "uuid": "",
+      "flow": "",
+      "network": "",
+      "security": "",
+      "sni": "",
+      "pbk": "",
+      "sid": "",
+      "spx": "/",
+      "path": "",
+      "mode": "",
+      "host_hdr": "",
+      "fingerprint": "chrome",
+      "outbound": {
+        "tag": "proxy",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "se.example.invalid",
+              "port": 443,
+              "users": [
+                {
+                  "id": "11111111-1111-4111-8111-111111111111",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "tcp",
+          "security": "reality",
+          "realitySettings": {
+            "serverName": "example.invalid",
+            "publicKey": "synthetic",
+            "shortId": "abcd"
+          }
+        }
+      },
+      "health": null
+    }
+  ],
+  "history": [],
+  "events": []
+}

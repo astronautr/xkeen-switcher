@@ -1,0 +1,966 @@
+{
+  "routing": {
+    "model": {
+      "schema_version": 1,
+      "document": {
+        "routing": {
+          "domainStrategy": "AsIs",
+          "rules": [
+            {
+              "type": "field",
+              "inboundTag": [
+                "redirect",
+                "tproxy"
+              ],
+              "outboundTag": "block",
+              "port": "135,137,138,139",
+              "network": "udp"
+            },
+            {
+              "type": "field",
+              "inboundTag": [
+                "redirect",
+                "tproxy"
+              ],
+              "outboundTag": "block",
+              "domain": [
+                "keyword:appcenter.ms"
+              ]
+            },
+            {
+              "type": "field",
+              "inboundTag": [
+                "redirect",
+                "tproxy"
+              ],
+              "outboundTag": "vless-reality",
+              "domain": [
+                "ext:geosite_v2fly.dat:google"
+              ]
+            },
+            {
+              "type": "field",
+              "inboundTag": [
+                "redirect",
+                "tproxy"
+              ],
+              "outboundTag": "direct",
+              "domain": [
+                "domain:example.org",
+                "ext:geosite_v2fly.dat:yandex"
+              ]
+            },
+            {
+              "type": "field",
+              "inboundTag": [
+                "redirect",
+                "tproxy"
+              ],
+              "outboundTag": "direct",
+              "ip": [
+                "ext:geoip_v2fly.dat:private"
+              ]
+            },
+            {
+              "type": "field",
+              "inboundTag": [
+                "redirect",
+                "tproxy"
+              ],
+              "outboundTag": "direct",
+              "protocol": [
+                "bittorrent"
+              ]
+            },
+            {
+              "type": "field",
+              "inboundTag": [
+                "redirect",
+                "tproxy"
+              ],
+              "outboundTag": "direct"
+            }
+          ]
+        }
+      },
+      "groups": [
+        {
+          "id": "4b3189be-f68f-4f4e-b41a-5d882e577f5c",
+          "title": "Vulnerable UDP ports",
+          "action": "block",
+          "matchers": [
+            {
+              "type": "port",
+              "value": "135,137,138,139"
+            },
+            {
+              "type": "network",
+              "value": "udp"
+            }
+          ],
+          "rule": {
+            "type": "field",
+            "inboundTag": [
+              "redirect",
+              "tproxy"
+            ],
+            "outboundTag": "block",
+            "port": "135,137,138,139",
+            "network": "udp"
+          },
+          "editable": true,
+          "catch_all": false,
+          "default_rule": false
+        },
+        {
+          "id": "45020d5b-3559-4fe1-a21e-faa2d1dcbdeb",
+          "title": "Analytics",
+          "action": "block",
+          "matchers": [
+            {
+              "type": "domain-substring",
+              "value": "appcenter.ms"
+            }
+          ],
+          "rule": {
+            "type": "field",
+            "inboundTag": [
+              "redirect",
+              "tproxy"
+            ],
+            "outboundTag": "block",
+            "domain": [
+              "keyword:appcenter.ms"
+            ]
+          },
+          "editable": true,
+          "catch_all": false,
+          "default_rule": false
+        },
+        {
+          "id": "44477a99-21b1-4b83-a760-47191551c542",
+          "title": "Google",
+          "action": "proxy",
+          "matchers": [
+            {
+              "type": "domain-geosite",
+              "value": "ext:geosite_v2fly.dat:google"
+            }
+          ],
+          "rule": {
+            "type": "field",
+            "inboundTag": [
+              "redirect",
+              "tproxy"
+            ],
+            "outboundTag": "vless-reality",
+            "domain": [
+              "ext:geosite_v2fly.dat:google"
+            ]
+          },
+          "editable": true,
+          "catch_all": false,
+          "default_rule": false
+        },
+        {
+          "id": "321c001f-5c05-48fd-a250-b855c1b43370",
+          "title": "Direct domains",
+          "action": "direct",
+          "matchers": [
+            {
+              "type": "domain-suffix",
+              "value": "example.org"
+            },
+            {
+              "type": "domain-geosite",
+              "value": "ext:geosite_v2fly.dat:yandex"
+            }
+          ],
+          "rule": {
+            "type": "field",
+            "inboundTag": [
+              "redirect",
+              "tproxy"
+            ],
+            "outboundTag": "direct",
+            "domain": [
+              "domain:example.org",
+              "ext:geosite_v2fly.dat:yandex"
+            ]
+          },
+          "editable": true,
+          "catch_all": false,
+          "default_rule": false
+        },
+        {
+          "id": "41f27d1d-b5ed-41a5-848d-6db81f61dbdd",
+          "title": "Local networks",
+          "action": "direct",
+          "matchers": [
+            {
+              "type": "ip-geoip",
+              "value": "ext:geoip_v2fly.dat:private"
+            }
+          ],
+          "rule": {
+            "type": "field",
+            "inboundTag": [
+              "redirect",
+              "tproxy"
+            ],
+            "outboundTag": "direct",
+            "ip": [
+              "ext:geoip_v2fly.dat:private"
+            ]
+          },
+          "editable": true,
+          "catch_all": false,
+          "default_rule": false
+        },
+        {
+          "id": "6612a98d-85b4-404b-8702-11620f74f36f",
+          "title": "Torrent",
+          "action": "direct",
+          "matchers": [
+            {
+              "type": "protocol",
+              "value": "bittorrent"
+            }
+          ],
+          "rule": {
+            "type": "field",
+            "inboundTag": [
+              "redirect",
+              "tproxy"
+            ],
+            "outboundTag": "direct",
+            "protocol": [
+              "bittorrent"
+            ]
+          },
+          "editable": true,
+          "catch_all": false,
+          "default_rule": false
+        },
+        {
+          "id": "66b8d10d-bb43-4994-bbb9-3b9c02246d32",
+          "title": "Everything else",
+          "action": "direct",
+          "matchers": [],
+          "rule": {
+            "type": "field",
+            "inboundTag": [
+              "redirect",
+              "tproxy"
+            ],
+            "outboundTag": "direct"
+          },
+          "editable": true,
+          "catch_all": true,
+          "default_rule": true
+        }
+      ],
+      "issues": []
+    },
+    "parse_error": null,
+    "current": {
+      "id": "1ed2bc13-8933-47af-ad2b-0ec200ac4d34",
+      "sha256": "919aeb87f7365155e85d2ba6388ca8f506115574e21cbbcb5c8ca990366ea069"
+    },
+    "observed_hash": "919aeb87f7365155e85d2ba6388ca8f506115574e21cbbcb5c8ca990366ea069",
+    "observed_at": "2026-11-17T08:55:00+00:00",
+    "drift": false,
+    "capabilities": {
+      "version": 3,
+      "ready": true,
+      "mock": true,
+      "bundle": true,
+      "selective": true
+    },
+    "draft": null,
+    "operations": [
+      {
+        "id": "c03a06aa-5e30-4b3c-a54b-360d6eecbae4",
+        "preview_id": "56595323-90a9-4d01-9ad1-8ea7f3b73c64",
+        "source_snapshot": null,
+        "kind": "routing",
+        "created_at": "2026-11-17T08:55:00+00:00",
+        "phase": "committed",
+        "message": "Configuration applied",
+        "before_snapshot": "2f6482fa-74f7-4146-ac18-9ee1fc328294",
+        "phase_times": {
+          "prepared": "2026-11-17T14:43:12.943262+00:00",
+          "submitted": "2026-11-17T14:43:12.943471+00:00",
+          "reconciling": "2026-11-17T14:43:12.943667+00:00",
+          "committed": "2026-11-17T14:43:12.946548+00:00"
+        },
+        "updated_at": "2026-11-17T08:55:00+00:00",
+        "submitted_at": "2026-11-17T08:55:00+00:00",
+        "completed_at": "2026-11-17T08:55:00+00:00",
+        "after_snapshot": "1ed2bc13-8933-47af-ad2b-0ec200ac4d34",
+        "diagnostics": {
+          "phase": "complete"
+        }
+      }
+    ]
+  },
+  "history": {
+    "snapshots": [
+      {
+        "source": "apply",
+        "parse_error": null,
+        "operation_id": "c03a06aa-5e30-4b3c-a54b-360d6eecbae4",
+        "id": "1ed2bc13-8933-47af-ad2b-0ec200ac4d34",
+        "sha256": "919aeb87f7365155e85d2ba6388ca8f506115574e21cbbcb5c8ca990366ea069",
+        "size": 1707,
+        "created_at": "2026-11-17T08:55:00+00:00",
+        "original": false,
+        "current": true,
+        "protected": true
+      },
+      {
+        "source": "pre-apply",
+        "parse_error": null,
+        "operation_id": "c03a06aa-5e30-4b3c-a54b-360d6eecbae4",
+        "id": "2f6482fa-74f7-4146-ac18-9ee1fc328294",
+        "sha256": "1594170fb2697f1bff635565d645754cac06ef692e3adb0a95afeb74d91c4394",
+        "size": 1000,
+        "created_at": "2026-11-17T08:55:00+00:00",
+        "original": false,
+        "current": false,
+        "protected": false
+      },
+      {
+        "source": "initial-import",
+        "parse_error": null,
+        "id": "c6f34dd3-0ac6-4c40-abb5-17ad51457367",
+        "sha256": "1594170fb2697f1bff635565d645754cac06ef692e3adb0a95afeb74d91c4394",
+        "size": 1000,
+        "created_at": "2026-11-17T08:55:00+00:00",
+        "original": true,
+        "current": false,
+        "protected": true
+      }
+    ],
+    "operations": [
+      {
+        "id": "c03a06aa-5e30-4b3c-a54b-360d6eecbae4",
+        "preview_id": "56595323-90a9-4d01-9ad1-8ea7f3b73c64",
+        "source_snapshot": null,
+        "kind": "routing",
+        "created_at": "2026-11-17T08:55:00+00:00",
+        "phase": "committed",
+        "message": "Configuration applied",
+        "before_snapshot": "2f6482fa-74f7-4146-ac18-9ee1fc328294",
+        "phase_times": {
+          "prepared": "2026-11-17T14:43:12.943262+00:00",
+          "submitted": "2026-11-17T14:43:12.943471+00:00",
+          "reconciling": "2026-11-17T14:43:12.943667+00:00",
+          "committed": "2026-11-17T14:43:12.946548+00:00"
+        },
+        "updated_at": "2026-11-17T08:55:00+00:00",
+        "submitted_at": "2026-11-17T08:55:00+00:00",
+        "completed_at": "2026-11-17T08:55:00+00:00",
+        "after_snapshot": "1ed2bc13-8933-47af-ad2b-0ec200ac4d34",
+        "diagnostics": {
+          "phase": "complete"
+        }
+      }
+    ]
+  },
+  "snapshot": {
+    "source": "initial-import",
+    "parse_error": null,
+    "id": "c6f34dd3-0ac6-4c40-abb5-17ad51457367",
+    "sha256": "1594170fb2697f1bff635565d645754cac06ef692e3adb0a95afeb74d91c4394",
+    "size": 1000,
+    "created_at": "2026-11-17T08:55:00+00:00",
+    "model": {
+      "schema_version": 1,
+      "document": {
+        "routing": {
+          "domainStrategy": "AsIs",
+          "rules": [
+            {
+              "type": "field",
+              "inboundTag": [
+                "redirect",
+                "tproxy"
+              ],
+              "outboundTag": "block",
+              "network": "udp",
+              "port": "135,137,138,139"
+            },
+            {
+              "type": "field",
+              "inboundTag": [
+                "redirect",
+                "tproxy"
+              ],
+              "outboundTag": "block",
+              "domain": [
+                "appcenter.ms"
+              ]
+            },
+            {
+              "type": "field",
+              "inboundTag": [
+                "redirect",
+                "tproxy"
+              ],
+              "outboundTag": "vless-reality",
+              "domain": [
+                "ext:geosite_v2fly.dat:google"
+              ]
+            },
+            {
+              "type": "field",
+              "inboundTag": [
+                "redirect",
+                "tproxy"
+              ],
+              "outboundTag": "direct",
+              "domain": [
+                "domain:example.org",
+                "ext:geosite_v2fly.dat:yandex"
+              ]
+            },
+            {
+              "type": "field",
+              "inboundTag": [
+                "redirect",
+                "tproxy"
+              ],
+              "outboundTag": "direct",
+              "ip": [
+                "ext:geoip_v2fly.dat:private"
+              ]
+            },
+            {
+              "type": "field",
+              "inboundTag": [
+                "redirect",
+                "tproxy"
+              ],
+              "outboundTag": "direct",
+              "protocol": [
+                "bittorrent"
+              ]
+            },
+            {
+              "type": "field",
+              "inboundTag": [
+                "redirect",
+                "tproxy"
+              ],
+              "outboundTag": "vless-reality"
+            }
+          ]
+        }
+      },
+      "groups": [
+        {
+          "id": "4b3189be-f68f-4f4e-b41a-5d882e577f5c",
+          "title": "Vulnerable UDP ports",
+          "action": "block",
+          "matchers": [
+            {
+              "type": "port",
+              "value": "135,137,138,139"
+            },
+            {
+              "type": "network",
+              "value": "udp"
+            }
+          ],
+          "rule": {
+            "type": "field",
+            "inboundTag": [
+              "redirect",
+              "tproxy"
+            ],
+            "outboundTag": "block",
+            "network": "udp",
+            "port": "135,137,138,139"
+          },
+          "editable": true,
+          "catch_all": false,
+          "default_rule": false
+        },
+        {
+          "id": "45020d5b-3559-4fe1-a21e-faa2d1dcbdeb",
+          "title": "Analytics",
+          "action": "block",
+          "matchers": [
+            {
+              "type": "domain-substring",
+              "value": "appcenter.ms"
+            }
+          ],
+          "rule": {
+            "type": "field",
+            "inboundTag": [
+              "redirect",
+              "tproxy"
+            ],
+            "outboundTag": "block",
+            "domain": [
+              "appcenter.ms"
+            ]
+          },
+          "editable": true,
+          "catch_all": false,
+          "default_rule": false
+        },
+        {
+          "id": "44477a99-21b1-4b83-a760-47191551c542",
+          "title": "Google",
+          "action": "proxy",
+          "matchers": [
+            {
+              "type": "domain-geosite",
+              "value": "ext:geosite_v2fly.dat:google"
+            }
+          ],
+          "rule": {
+            "type": "field",
+            "inboundTag": [
+              "redirect",
+              "tproxy"
+            ],
+            "outboundTag": "vless-reality",
+            "domain": [
+              "ext:geosite_v2fly.dat:google"
+            ]
+          },
+          "editable": true,
+          "catch_all": false,
+          "default_rule": false
+        },
+        {
+          "id": "321c001f-5c05-48fd-a250-b855c1b43370",
+          "title": "Direct domains",
+          "action": "direct",
+          "matchers": [
+            {
+              "type": "domain-suffix",
+              "value": "example.org"
+            },
+            {
+              "type": "domain-geosite",
+              "value": "ext:geosite_v2fly.dat:yandex"
+            }
+          ],
+          "rule": {
+            "type": "field",
+            "inboundTag": [
+              "redirect",
+              "tproxy"
+            ],
+            "outboundTag": "direct",
+            "domain": [
+              "domain:example.org",
+              "ext:geosite_v2fly.dat:yandex"
+            ]
+          },
+          "editable": true,
+          "catch_all": false,
+          "default_rule": false
+        },
+        {
+          "id": "41f27d1d-b5ed-41a5-848d-6db81f61dbdd",
+          "title": "Local networks",
+          "action": "direct",
+          "matchers": [
+            {
+              "type": "ip-geoip",
+              "value": "ext:geoip_v2fly.dat:private"
+            }
+          ],
+          "rule": {
+            "type": "field",
+            "inboundTag": [
+              "redirect",
+              "tproxy"
+            ],
+            "outboundTag": "direct",
+            "ip": [
+              "ext:geoip_v2fly.dat:private"
+            ]
+          },
+          "editable": true,
+          "catch_all": false,
+          "default_rule": false
+        },
+        {
+          "id": "6612a98d-85b4-404b-8702-11620f74f36f",
+          "title": "Torrent",
+          "action": "direct",
+          "matchers": [
+            {
+              "type": "protocol",
+              "value": "bittorrent"
+            }
+          ],
+          "rule": {
+            "type": "field",
+            "inboundTag": [
+              "redirect",
+              "tproxy"
+            ],
+            "outboundTag": "direct",
+            "protocol": [
+              "bittorrent"
+            ]
+          },
+          "editable": true,
+          "catch_all": false,
+          "default_rule": false
+        },
+        {
+          "id": "66b8d10d-bb43-4994-bbb9-3b9c02246d32",
+          "title": "Everything else",
+          "action": "proxy",
+          "matchers": [],
+          "rule": {
+            "type": "field",
+            "inboundTag": [
+              "redirect",
+              "tproxy"
+            ],
+            "outboundTag": "vless-reality"
+          },
+          "editable": true,
+          "catch_all": true,
+          "default_rule": true
+        }
+      ],
+      "issues": []
+    }
+  },
+  "preview": {
+    "intent": "restore",
+    "base_hash": "919aeb87f7365155e85d2ba6388ca8f506115574e21cbbcb5c8ca990366ea069",
+    "base_snapshot": "1ed2bc13-8933-47af-ad2b-0ec200ac4d34",
+    "source_snapshot": "c6f34dd3-0ac6-4c40-abb5-17ad51457367",
+    "draft_revision": null,
+    "environment": "e4b053953f0a1e469c4f2a2dd0e5862d03c5358921666926c01bd9dd58249854",
+    "bundle_id": null,
+    "changes": [
+      {
+        "id": "66b8d10d-bb43-4994-bbb9-3b9c02246d32",
+        "kind": "edited",
+        "before": {
+          "id": "66b8d10d-bb43-4994-bbb9-3b9c02246d32",
+          "title": "Everything else",
+          "action": "direct",
+          "matchers": [],
+          "rule": {
+            "type": "field",
+            "inboundTag": [
+              "redirect",
+              "tproxy"
+            ],
+            "outboundTag": "direct"
+          },
+          "editable": true,
+          "catch_all": true,
+          "default_rule": true
+        },
+        "after": {
+          "id": "66b8d10d-bb43-4994-bbb9-3b9c02246d32",
+          "title": "Everything else",
+          "action": "proxy",
+          "matchers": [],
+          "rule": {
+            "type": "field",
+            "inboundTag": [
+              "redirect",
+              "tproxy"
+            ],
+            "outboundTag": "vless-reality"
+          },
+          "editable": true,
+          "catch_all": true,
+          "default_rule": true
+        },
+        "old_position": 7,
+        "new_position": 7,
+        "fields": [
+          "action"
+        ],
+        "moved": false
+      }
+    ],
+    "xkeen_state": "running",
+    "validation": [],
+    "has_draft": false,
+    "validated": true,
+    "id": "8855538b-7548-47ce-8e53-7d020108c8bd",
+    "sha256": "1594170fb2697f1bff635565d645754cac06ef692e3adb0a95afeb74d91c4394",
+    "size": 1000,
+    "created_at": "2026-11-17T08:55:00+00:00",
+    "model": {
+      "schema_version": 1,
+      "document": {
+        "routing": {
+          "domainStrategy": "AsIs",
+          "rules": [
+            {
+              "type": "field",
+              "inboundTag": [
+                "redirect",
+                "tproxy"
+              ],
+              "outboundTag": "block",
+              "network": "udp",
+              "port": "135,137,138,139"
+            },
+            {
+              "type": "field",
+              "inboundTag": [
+                "redirect",
+                "tproxy"
+              ],
+              "outboundTag": "block",
+              "domain": [
+                "appcenter.ms"
+              ]
+            },
+            {
+              "type": "field",
+              "inboundTag": [
+                "redirect",
+                "tproxy"
+              ],
+              "outboundTag": "vless-reality",
+              "domain": [
+                "ext:geosite_v2fly.dat:google"
+              ]
+            },
+            {
+              "type": "field",
+              "inboundTag": [
+                "redirect",
+                "tproxy"
+              ],
+              "outboundTag": "direct",
+              "domain": [
+                "domain:example.org",
+                "ext:geosite_v2fly.dat:yandex"
+              ]
+            },
+            {
+              "type": "field",
+              "inboundTag": [
+                "redirect",
+                "tproxy"
+              ],
+              "outboundTag": "direct",
+              "ip": [
+                "ext:geoip_v2fly.dat:private"
+              ]
+            },
+            {
+              "type": "field",
+              "inboundTag": [
+                "redirect",
+                "tproxy"
+              ],
+              "outboundTag": "direct",
+              "protocol": [
+                "bittorrent"
+              ]
+            },
+            {
+              "type": "field",
+              "inboundTag": [
+                "redirect",
+                "tproxy"
+              ],
+              "outboundTag": "vless-reality"
+            }
+          ]
+        }
+      },
+      "groups": [
+        {
+          "id": "4b3189be-f68f-4f4e-b41a-5d882e577f5c",
+          "title": "Vulnerable UDP ports",
+          "action": "block",
+          "matchers": [
+            {
+              "type": "port",
+              "value": "135,137,138,139"
+            },
+            {
+              "type": "network",
+              "value": "udp"
+            }
+          ],
+          "rule": {
+            "type": "field",
+            "inboundTag": [
+              "redirect",
+              "tproxy"
+            ],
+            "outboundTag": "block",
+            "network": "udp",
+            "port": "135,137,138,139"
+          },
+          "editable": true,
+          "catch_all": false,
+          "default_rule": false
+        },
+        {
+          "id": "45020d5b-3559-4fe1-a21e-faa2d1dcbdeb",
+          "title": "Analytics",
+          "action": "block",
+          "matchers": [
+            {
+              "type": "domain-substring",
+              "value": "appcenter.ms"
+            }
+          ],
+          "rule": {
+            "type": "field",
+            "inboundTag": [
+              "redirect",
+              "tproxy"
+            ],
+            "outboundTag": "block",
+            "domain": [
+              "appcenter.ms"
+            ]
+          },
+          "editable": true,
+          "catch_all": false,
+          "default_rule": false
+        },
+        {
+          "id": "44477a99-21b1-4b83-a760-47191551c542",
+          "title": "Google",
+          "action": "proxy",
+          "matchers": [
+            {
+              "type": "domain-geosite",
+              "value": "ext:geosite_v2fly.dat:google"
+            }
+          ],
+          "rule": {
+            "type": "field",
+            "inboundTag": [
+              "redirect",
+              "tproxy"
+            ],
+            "outboundTag": "vless-reality",
+            "domain": [
+              "ext:geosite_v2fly.dat:google"
+            ]
+          },
+          "editable": true,
+          "catch_all": false,
+          "default_rule": false
+        },
+        {
+          "id": "321c001f-5c05-48fd-a250-b855c1b43370",
+          "title": "Direct domains",
+          "action": "direct",
+          "matchers": [
+            {
+              "type": "domain-suffix",
+              "value": "example.org"
+            },
+            {
+              "type": "domain-geosite",
+              "value": "ext:geosite_v2fly.dat:yandex"
+            }
+          ],
+          "rule": {
+            "type": "field",
+            "inboundTag": [
+              "redirect",
+              "tproxy"
+            ],
+            "outboundTag": "direct",
+            "domain": [
+              "domain:example.org",
+              "ext:geosite_v2fly.dat:yandex"
+            ]
+          },
+          "editable": true,
+          "catch_all": false,
+          "default_rule": false
+        },
+        {
+          "id": "41f27d1d-b5ed-41a5-848d-6db81f61dbdd",
+          "title": "Local networks",
+          "action": "direct",
+          "matchers": [
+            {
+              "type": "ip-geoip",
+              "value": "ext:geoip_v2fly.dat:private"
+            }
+          ],
+          "rule": {
+            "type": "field",
+            "inboundTag": [
+              "redirect",
+              "tproxy"
+            ],
+            "outboundTag": "direct",
+            "ip": [
+              "ext:geoip_v2fly.dat:private"
+            ]
+          },
+          "editable": true,
+          "catch_all": false,
+          "default_rule": false
+        },
+        {
+          "id": "6612a98d-85b4-404b-8702-11620f74f36f",
+          "title": "Torrent",
+          "action": "direct",
+          "matchers": [
+            {
+              "type": "protocol",
+              "value": "bittorrent"
+            }
+          ],
+          "rule": {
+            "type": "field",
+            "inboundTag": [
+              "redirect",
+              "tproxy"
+            ],
+            "outboundTag": "direct",
+            "protocol": [
+              "bittorrent"
+            ]
+          },
+          "editable": true,
+          "catch_all": false,
+          "default_rule": false
+        },
+        {
+          "id": "66b8d10d-bb43-4994-bbb9-3b9c02246d32",
+          "title": "Everything else",
+          "action": "proxy",
+          "matchers": [],
+          "rule": {
+            "type": "field",
+            "inboundTag": [
+              "redirect",
+              "tproxy"
+            ],
+            "outboundTag": "vless-reality"
+          },
+          "editable": true,
+          "catch_all": true,
+          "default_rule": true
+        }
+      ],
+      "issues": []
+    }
+  }
+}

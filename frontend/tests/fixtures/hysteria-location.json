@@ -1,0 +1,33 @@
+{
+  "code": "se",
+  "name": "Sweden 🇸🇪",
+  "protocol": "hysteria2",
+  "host": "se.example.invalid",
+  "port": 443,
+  "uuid": "",
+  "flow": "",
+  "network": "",
+  "security": "",
+  "sni": "",
+  "pbk": "",
+  "sid": "",
+  "spx": "/",
+  "path": "",
+  "mode": "",
+  "host_hdr": "",
+  "fingerprint": "chrome",
+  "outbound": {
+    "tag": "proxy",
+    "protocol": "hysteria2",
+    "settings": {
+      "servers": [
+        {
+          "address": "se.example.invalid",
+          "port": 443,
+          "password": "synthetic-only"
+        }
+      ]
+    }
+  },
+  "health": null
+}

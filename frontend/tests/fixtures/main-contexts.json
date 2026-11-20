@@ -1,0 +1,203 @@
+{
+  "unknown": {
+    "device_id": null,
+    "device_name": null,
+    "mode": "unknown",
+    "code": null,
+    "main_code": "fi",
+    "follows_main": false,
+    "main_route": {
+      "mode": "single",
+      "exit_code": "fi",
+      "exit_name": "Finland 🇫🇮",
+      "entry_code": null,
+      "entry_name": null
+    },
+    "location": {
+      "code": null,
+      "name": null,
+      "host": null,
+      "port": null,
+      "protocol": null
+    },
+    "identified": false,
+    "unavailable": false,
+    "key": "0000000000000000000000000000000000000000000000000000000000000000",
+    "check": null
+  },
+  "main": {
+    "device_id": "02:00:00:00:00:54",
+    "device_name": "Apple TV",
+    "mode": "main",
+    "code": "fi",
+    "main_code": "fi",
+    "follows_main": true,
+    "main_route": {
+      "mode": "single",
+      "exit_code": "fi",
+      "exit_name": "Finland 🇫🇮",
+      "entry_code": null,
+      "entry_name": null
+    },
+    "location": {
+      "code": "fi",
+      "name": "Finland 🇫🇮",
+      "host": "fi.example.invalid",
+      "port": 443,
+      "protocol": "vless"
+    },
+    "identified": true,
+    "unavailable": false,
+    "key": "0000000000000000000000000000000000000000000000000000000000000000",
+    "check": {
+      "active_code": "fi",
+      "active_after": "fi",
+      "checked_at": "2026-11-17T09:00:00+00:00",
+      "ok": true,
+      "tcp": {
+        "ok": true,
+        "latency_ms": 24
+      },
+      "route": {
+        "ok": true,
+        "results": [
+          {
+            "name": "video.example.invalid",
+            "url": "https://video.example.invalid/health",
+            "ok": true,
+            "status": 204,
+            "latency_ms": 24,
+            "error": null
+          },
+          {
+            "name": "shop.example.invalid",
+            "url": "https://shop.example.invalid/health",
+            "ok": true,
+            "status": 204,
+            "latency_ms": 24,
+            "error": null
+          }
+        ],
+        "unattributed": false,
+        "server_code": "fi"
+      }
+    }
+  },
+  "fixed": {
+    "device_id": "02:00:00:00:00:54",
+    "device_name": "Apple TV",
+    "mode": "fixed",
+    "code": "de",
+    "main_code": "fi",
+    "follows_main": false,
+    "main_route": {
+      "mode": "single",
+      "exit_code": "fi",
+      "exit_name": "Finland 🇫🇮",
+      "entry_code": null,
+      "entry_name": null
+    },
+    "location": {
+      "code": "de",
+      "name": "Germany 🇩🇪",
+      "host": "de.example.invalid",
+      "port": 443,
+      "protocol": "vless"
+    },
+    "identified": true,
+    "unavailable": false,
+    "key": "0000000000000000000000000000000000000000000000000000000000000000",
+    "check": {
+      "active_code": "de",
+      "active_after": "de",
+      "main_code": "fi",
+      "scope": "server",
+      "checked_at": "2026-11-17T09:00:00+00:00",
+      "ok": true,
+      "tcp": {
+        "ok": true,
+        "latency_ms": 24
+      },
+      "route": {
+        "ok": true,
+        "results": [
+          {
+            "name": "video.example.invalid",
+            "url": "https://video.example.invalid/health",
+            "ok": true,
+            "status": 204,
+            "latency_ms": 24,
+            "error": null
+          },
+          {
+            "name": "shop.example.invalid",
+            "url": "https://shop.example.invalid/health",
+            "ok": true,
+            "status": 204,
+            "latency_ms": 24,
+            "error": null
+          }
+        ],
+        "unattributed": true,
+        "server_code": "de"
+      }
+    }
+  },
+  "outside": {
+    "device_id": "02:00:00:00:00:54",
+    "device_name": "Apple TV",
+    "mode": "outside",
+    "code": null,
+    "main_code": "fi",
+    "follows_main": false,
+    "main_route": {
+      "mode": "single",
+      "exit_code": "fi",
+      "exit_name": "Finland 🇫🇮",
+      "entry_code": null,
+      "entry_name": null
+    },
+    "location": {
+      "code": null,
+      "name": null,
+      "host": null,
+      "port": null,
+      "protocol": null
+    },
+    "identified": true,
+    "unavailable": false,
+    "key": "0000000000000000000000000000000000000000000000000000000000000000",
+    "check": {
+      "active_code": null,
+      "active_after": null,
+      "main_code": "fi",
+      "scope": "server",
+      "checked_at": "2026-11-17T09:00:00+00:00",
+      "ok": true,
+      "tcp": null,
+      "route": {
+        "ok": true,
+        "results": [
+          {
+            "name": "video.example.invalid",
+            "url": "https://video.example.invalid/health",
+            "ok": true,
+            "status": 204,
+            "latency_ms": 24,
+            "error": null
+          },
+          {
+            "name": "shop.example.invalid",
+            "url": "https://shop.example.invalid/health",
+            "ok": true,
+            "status": 204,
+            "latency_ms": 24,
+            "error": null
+          }
+        ],
+        "unattributed": true,
+        "server_code": null
+      }
+    }
+  }
+}

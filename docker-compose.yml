@@ -1,0 +1,25 @@
+services:
+  xk-switcher:
+    build: .
+    container_name: xk-switcher
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./data:/data
+      - ./ssh/xk_known_hosts:/root/.ssh/known_hosts:ro
+    environment:
+      ROUTER_HOST: "${ROUTER_HOST:-192.168.1.1}"
+      ROUTER_USER: "${ROUTER_USER:-root}"
+      ROUTER_PORT: "${ROUTER_PORT:-22}"
+      SSH_PASSWORD: "${SSH_PASSWORD:-}"
+      KEENETIC_URL: "${KEENETIC_URL:-}"
+      KEENETIC_USER: "${KEENETIC_USER:-}"
+      KEENETIC_PASSWORD: "${KEENETIC_PASSWORD:-}"
+      XK_DEVICE_POLICY_IDS: "${XK_DEVICE_POLICY_IDS:-}"
+      SUB_URL: "${SUB_URL:-}"
+      DATA_DIR: "/data"
+      LISTEN_HOST: "0.0.0.0"
+      LISTEN_PORT: "8080"
+      XK_SUBSCRIPTION_UPDATE_INTERVAL_SEC: "3600"
+      LOG_LEVEL: "INFO"

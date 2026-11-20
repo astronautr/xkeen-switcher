@@ -1,0 +1,180 @@
+/* ==========================================================
+   Design tokens — the only place for colours, sizes and layers.
+   Contrast (sRGB, against bg / surface / hover; light | dark):
+     text 14.54 | 9.88 · muted 4.83 | 6.28 · control border 3.26 | 4.60
+     success 5.76 | 8.76 · warning 5.56 | 8.68 · error 6.28 | 7.02 · info 6.01 | 8.86
+     failover 5.01 | 7.41
+   Dark values are duplicated for the system preference and the explicit
+   choice; both maps must stay identical (checked by tests).
+   ========================================================== */
+:root {
+  /* colour — light */
+  --app-bg:          #f5f4ef;
+  --app-fg:          #1a1a1a;
+  --surface:         #fffef8;
+  --surface-2:       #ecebe2;
+  --muted:           #686658;
+  --readable-muted:  #686658;
+  --control-border:  #858171;
+  --divider:         #b1ae9e;
+  --accent:          #1a1a1a;
+  --accent-ink:      #fffef8;
+  --active-bg:       #1a1a1a;
+  --success:         #256725;
+  --warn:            #805300;
+  --danger:          #a61b1b;
+  --info:            #315c75;
+  --on-danger:       #fffef8;
+  --danger-soft:     #f5d6d2;
+  --warn-soft:       #f2e2b8;
+  --failover:        #9a4f0f;
+  --failover-soft:   #f7e5cf;
+  --failover-ink:    #2a1a0a;
+  --info-soft:       #e4e2d6;
+  --progress-track:  #d8d5c8;
+  --progress-fill:   var(--accent);
+  --toast-bg:        #1c1c1e;
+  --toast-fg:        #ffffff;
+  --scrim:           rgba(0, 0, 0, 0.42);
+  --health-ok:       var(--success);
+  --health-fail:     var(--danger);
+  --health-skip:     var(--muted);
+
+  --shadow-panel: -20px 0 40px rgb(0 0 0 / .18);
+  --shadow-menu: 0 8px 24px rgb(0 0 0 / .2);
+  --shadow-dialog: 0 12px 70px #0003;
+
+  /* User-approved upper dashboard appearance; scoped above Locations only. */
+  --dashboard-top-muted: #7a7868;
+  --dashboard-top-control-border: #b1ae9e;
+  --dashboard-top-divider: #1a1a1a;
+  --dashboard-top-success: #2d7a2d;
+  --dashboard-top-warn: #a06a00;
+  --dashboard-top-failover: #c2691a;
+  --dashboard-top-meta-font: 11px;
+  --dashboard-top-probe-font: 10px;
+
+  /* type scale (px): 12 / 13 / 14 / 16 / 18 / 22; fields are always 16 */
+  --font-xs: 12px;
+  --font-sm: 13px;
+  --font-md: 14px;
+  --font-lg: 16px;
+  --font-xl: 18px;
+  --font-2xl: 22px;
+  --font-field: 16px;
+
+  /* spacing: 0/4/8/12/16/24/32/48 */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+
+  /* controls: compact 32, touch 44, touch menu 48 */
+  --control-compact: 32px;
+  --control-touch: 44px;
+  --control-menu-touch: 48px;
+  --control-size: var(--control-compact);
+
+  /* shape, focus, motion */
+  --radius: 0;
+  --focus-width: 2px;
+  --focus-offset: 3px;
+  --focus-color: var(--accent);
+  --motion-fast: 150ms;
+  --motion-base: 240ms;
+
+  /* layers (native dialogs use the top layer above all of these) */
+  --z-sticky: 10;
+  --z-floating: 14;
+  --z-backdrop: 15;
+  --z-drawer: 16;
+  --z-toast: 25;
+  --z-pull: 45;
+
+  /* safe areas */
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-right: env(safe-area-inset-right, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-left: env(safe-area-inset-left, 0px);
+}
+
+/* Touch-sized controls on narrow screens and on coarse pointers at any width. */
+@media (max-width: 720px), (pointer: coarse) {
+  :root { --control-size: var(--control-touch); }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not(.theme-light) {
+    --dashboard-top-muted: #7a766b;
+    --dashboard-top-control-border: #4a463b;
+    --dashboard-top-divider: #3a362e;
+    --dashboard-top-success: #b7c892;
+    --dashboard-top-warn: #e8b96b;
+    --dashboard-top-failover: #f0a05c;
+
+    --app-bg:        #141414;
+    --app-fg:        #d6ccb8;
+    --surface:       #1b1a17;
+    --surface-2:     #24231f;
+    --muted:         #aaa395;
+    --readable-muted: #aaa395;
+    --control-border: #938a78;
+    --divider:       #4a463b;
+    --accent:        #e8b96b;
+    --accent-ink:    #141414;
+    --active-bg:     #e8b96b;
+    --success:       #b7c892;
+    --warn:          #e8b96b;
+    --danger:        #e69a8d;
+    --info:          #a6c7dc;
+    --on-danger:     #141414;
+    --danger-soft:   #2a1b17;
+    --warn-soft:     #2a2416;
+    --failover:      #f0a05c;
+    --failover-soft: #2d1e12;
+    --failover-ink:  #f0d7bb;
+    --info-soft:     #221f19;
+    --progress-track: #4a463b;
+    --toast-bg:      #2a2824;
+    --toast-fg:      #f2ecdf;
+    --scrim:         rgba(0, 0, 0, 0.6);
+  }
+}
+:root.theme-dark {
+  --dashboard-top-muted: #7a766b;
+  --dashboard-top-control-border: #4a463b;
+  --dashboard-top-divider: #3a362e;
+  --dashboard-top-success: #b7c892;
+  --dashboard-top-warn: #e8b96b;
+  --dashboard-top-failover: #f0a05c;
+
+  --app-bg:        #141414;
+  --app-fg:        #d6ccb8;
+  --surface:       #1b1a17;
+  --surface-2:     #24231f;
+  --muted:         #aaa395;
+  --readable-muted: #aaa395;
+  --control-border: #938a78;
+  --divider:       #4a463b;
+  --accent:        #e8b96b;
+  --accent-ink:    #141414;
+  --active-bg:     #e8b96b;
+  --success:       #b7c892;
+  --warn:          #e8b96b;
+  --danger:        #e69a8d;
+  --info:          #a6c7dc;
+  --on-danger:     #141414;
+  --danger-soft:   #2a1b17;
+  --warn-soft:     #2a2416;
+  --failover:      #f0a05c;
+  --failover-soft: #2d1e12;
+  --failover-ink:  #f0d7bb;
+  --info-soft:     #221f19;
+  --progress-track: #4a463b;
+  --toast-bg:      #2a2824;
+  --toast-fg:      #f2ecdf;
+  --scrim:         rgba(0, 0, 0, 0.6);
+}

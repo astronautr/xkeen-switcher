@@ -1,0 +1,60 @@
+/* Clip the closed drawer without turning the desktop dashboard into a scroll container. */
+#root:has(.router-update-notice) { overflow: clip; }
+.router-update-notice {
+  position: sticky; top: var(--safe-top); z-index: var(--z-sticky);
+  flex-wrap: nowrap; gap: 8px; background: var(--warn-soft); border-color: var(--warn);
+}
+.router-update-notice > div { flex: 1; min-width: 0; overflow-wrap: anywhere; }
+.router-update-notice strong, .router-update-notice span { display: block; }
+.router-update-notice > div > span { color: var(--readable-muted); font-size: var(--font-xs); }
+.router-update-notice button { flex: none; }
+.router-updates { display: grid; gap: 12px; }
+.router-updates h2, .router-updates h3, .router-updates h4, .router-updates p, .router-updates ul { margin: 0; }
+.router-updates h2 { font-size: var(--font-lg); }
+.router-updates h3, .router-updates h4 { font-size: var(--font-md); }
+.router-updates h3[tabindex="-1"]:focus:not(:focus-visible) { outline: none; }
+.router-update-heading, .router-update-actions {
+  display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+}
+/* A fact and the one action it owns: text wraps, the action keeps the row end. */
+.router-update-row {
+  display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 8px;
+}
+.router-update-row > :only-child { grid-column: 1 / -1; }
+/* The two install verbs stay one unit; on phones they split the card width evenly. */
+.router-update-pair-actions { display: grid; grid-template-columns: repeat(2, minmax(0, max-content)); justify-content: start; align-items: stretch; }
+.router-update-point { border-top: 1px dashed var(--divider); padding-top: 10px; color: var(--readable-muted); }
+.router-update-point strong { color: var(--app-fg); }
+.router-update-heading { justify-content: space-between; }
+.router-update-component, .router-operation, .router-action-form {
+  display: grid; gap: 10px; border: 1px solid var(--divider); padding: 12px; min-width: 0;
+  background: var(--surface); font-size: var(--font-sm); overflow-wrap: anywhere;
+}
+.router-operation { border-left: 3px solid var(--warn); }
+.router-update-combined { border-inline-start: 3px solid var(--accent); }
+.router-pair-status { display: grid; gap: 4px; }
+.router-update-combined ul { padding-inline-start: 1.35em; }
+.router-action-form { background: var(--surface-2); border-color: var(--control-border); }
+.router-action-form h4 { color: var(--accent); }
+.router-updates .t-field { display: grid; gap: 6px; min-width: 0; margin: 0; }
+.router-updates .t-field input, .router-updates .t-field select, .router-ssh-command {
+  max-width: 100%; min-width: 0; min-height: var(--control-size); padding: 5px 8px;
+  background: var(--app-bg); color: var(--app-fg); border: 1px solid var(--control-border); font: inherit;
+}
+.router-updates .t-field > span { font-size: var(--font-xs); color: var(--readable-muted); }
+.router-auto, .router-update-history, .router-recovery { border-top: 1px dashed var(--divider); padding-top: 12px; }
+.router-auto form { display: grid; justify-items: start; gap: 8px; margin-top: 8px; }
+.router-auto-toggles { display: grid; justify-items: start; }
+.router-auto-toggles .fo-toggle { font-size: var(--font-sm); }
+.router-update-warning, .router-updates [role="alert"] { color: var(--warn); overflow-wrap: anywhere; }
+.router-update-history ul { padding: 0; list-style: none; }
+.router-update-history li { display: grid; gap: 4px; margin-top: 8px; font-size: var(--font-sm); overflow-wrap: anywhere; }
+.router-update-history small { color: var(--readable-muted); }
+.router-recovery summary { cursor: pointer; min-height: var(--control-size); align-content: center; }
+.router-ssh-command { width: 100%; margin: 8px 0; }
+@media (max-width:640px) {
+  .router-update-notice { padding: 6px 8px; gap: 4px; }
+  .router-update-notice > div > strong { font-size: var(--font-sm); }
+  .router-updates input, .router-updates select { font-size: 16px; }
+  .router-update-pair-actions { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}

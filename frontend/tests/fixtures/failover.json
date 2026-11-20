@@ -1,0 +1,25 @@
+{
+  "config": {
+    "schema_version": 1,
+    "enabled": false,
+    "auto_failback": false,
+    "auto_stop_on_total_failure": false,
+    "auto_restart_on_recovery": false,
+    "whitelist": []
+  },
+  "runtime": {
+    "schema_version": 1,
+    "updated_at": null,
+    "next_probe_at": null,
+    "map": {}
+  },
+  "env_constants": {
+    "check_interval_sec": 300,
+    "fail_threshold": 3,
+    "grace_after_switch_sec": 60,
+    "dampening_ticks": 3,
+    "tcp_timeout_sec": 3
+  },
+  "suspended": false,
+  "suspension_reason": null
+}

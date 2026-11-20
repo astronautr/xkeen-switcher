@@ -1,0 +1,23 @@
+{
+  "name": "XKeen Switcher",
+  "short_name": "XKeen",
+  "description": "Switch XKeen VPN locations",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f5f4ef",
+  "theme_color": "#f5f4ef",
+  "icons": [
+    {
+      "src": "/icon-light.svg",
+      "type": "image/svg+xml",
+      "sizes": "any",
+      "purpose": "any"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "type": "image/png",
+      "sizes": "180x180",
+      "purpose": "any"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "id": "22222222-2222-4222-8222-222222222222",
+  "kind": "main",
+  "target_code": "de",
+  "target_entry_code": "se",
+  "target_route": {
+    "mode": "chain",
+    "exit_code": "de",
+    "exit_name": "Germany 🇩🇪",
+    "entry_code": "se",
+    "entry_name": "Sweden 🇸🇪"
+  },
+  "trigger": "manual",
+  "created_at": "2026-11-17T08:55:00+00:00",
+  "phase": "accepted",
+  "message": "Preparing Main location",
+  "target_name": "Germany 🇩🇪",
+  "confirmed_route": {
+    "mode": "single",
+    "exit_code": "fi",
+    "exit_name": "Finland 🇫🇮",
+    "entry_code": null,
+    "entry_name": null
+  }
+}

@@ -1,0 +1,132 @@
+/* ==========================================================
+   Shared component states (ui-*). Values come from tokens.css.
+   Screen CSS owns layout only.
+   ========================================================== */
+
+/* One keyboard focus ring for every control, including on primary/accent fills. */
+:focus:not(:focus-visible) { outline: none; }
+:focus-visible {
+  outline: var(--focus-width) solid var(--focus-color);
+  outline-offset: var(--focus-offset);
+}
+input:focus-visible, textarea:focus-visible, select:focus-visible { outline-offset: 0; }
+
+/* Fields are 16px everywhere so iOS does not zoom on focus (U09). */
+input:not([type="checkbox"]):not([type="radio"]):not([type="range"]), textarea, select {
+  font-size: var(--font-field);
+}
+
+/* Reduced motion removes every infinite animation, not only some (U11). */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.visually-hidden {
+  position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+
+/* Button: native button, explicit variants. */
+.ui-button {
+  appearance: none;
+  min-height: var(--control-size);
+  padding: 6px 12px;
+  border: 1px solid var(--control-border);
+  border-radius: var(--radius);
+  background: transparent;
+  color: var(--app-fg);
+  font: inherit;
+  font-size: var(--font-sm);
+  line-height: 1.2;
+  cursor: pointer;
+}
+.ui-button:where(:not(.ui-disclosure)):hover:not(:disabled):not([aria-disabled="true"]) { background: var(--surface-2); }
+.ui-button-primary { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+.ui-button-primary:hover:not(:disabled):not([aria-disabled="true"]) { background: var(--accent); filter: brightness(1.12); }
+.ui-button-danger { border-color: var(--danger); color: var(--danger); }
+.ui-button-danger:hover:not(:disabled):not([aria-disabled="true"]) { background: var(--danger); color: var(--on-danger); }
+.ui-button:disabled, .ui-button[aria-disabled="true"] {
+  color: var(--muted); background: transparent; border-color: var(--control-border); border-style: dashed; cursor: not-allowed;
+}
+
+/* Inline disclosures keep the whole row clickable. */
+@media (hover: hover) {
+  .ui-disclosure:hover > .ui-disclosure-chevron { color: var(--app-fg); }
+}
+
+/* ActionGroup: Cancel before commit; wraps on narrow screens. */
+.ui-action-group { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: var(--space-2); }
+
+/* ConfirmStrip: inline, non-modal question. */
+.ui-confirm-strip {
+  margin-top: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid var(--control-border);
+  border-left: 3px solid var(--accent);
+  background: var(--surface);
+}
+.ui-confirm-strip.ui-tone-danger { border-left-color: var(--danger); }
+.ui-confirm-question { margin: 0; font-weight: 700; font-size: var(--font-sm); }
+.ui-confirm-detail { margin: var(--space-1) 0 var(--space-2); color: var(--muted); font-size: var(--font-xs); line-height: 1.45; }
+
+/* DisabledReason: visible next to the unavailable action, also on touch. */
+.ui-disabled-reason {
+  margin: var(--space-2) 0 0;
+  color: var(--muted);
+  font-size: var(--font-xs);
+  line-height: 1.45;
+}
+
+/* Touch targets: at least 44px on narrow screens and coarse pointers (U12). */
+@media (max-width: 720px), (pointer: coarse) {
+  .t-btn, .t-settings-trigger, .check-all-btn, .banner-action, .drawer-close, .settings-crumb,
+  .t-seg-btn, .fo-check-btn, .wl-arrow, .connectivity-remove, .ui-button, .gate-mode {
+    min-height: var(--control-touch);
+  }
+  .wl-arrow, .connectivity-remove { min-width: var(--control-touch); }
+}
+
+/* Value pickers and command menus share geometry, never their roles. */
+.ui-choice-popup {
+  position: fixed; inset: auto; margin: 0; padding: var(--space-1);
+  overflow-y: auto; border: 1px solid var(--control-border); border-radius: var(--radius);
+  background: var(--surface); color: var(--app-fg);
+}
+.ui-choice-option {
+  display: flex; align-items: center; gap: var(--space-2); width: 100%;
+  min-height: var(--control-size); padding: var(--space-2); border: 0;
+  background: transparent; color: var(--app-fg); text-align: left; font: inherit; cursor: pointer;
+}
+.ui-choice-option:hover:not(:disabled), .ui-choice-option[aria-selected="true"] { background: var(--surface-2); }
+.ui-choice-option:disabled { color: var(--muted); cursor: not-allowed; }
+.ui-choice-check { display: inline-block; width: 1em; flex: 0 0 1em; text-align: center; }
+select.ui-select { min-height: var(--control-size); border: 1px solid var(--control-border); background: var(--surface); color: var(--app-fg); padding: var(--space-2); }
+/* A native modal owns its feedback host; it cannot be hidden under the top layer. */
+dialog > .toast-stack { position: static; transform: none; width: auto; max-height: none; margin: var(--space-3); }
+@media (pointer: coarse) {
+  .ui-choice-option, .menu-option, .condition-option { min-height: var(--control-menu-touch); }
+}
+
+/* Top-layer panels account for notches and the home indicator in every direction. */
+dialog.routing-panel {
+  padding-top: var(--safe-top); padding-right: var(--safe-right); padding-bottom: var(--safe-bottom);
+}
+dialog.pair-dialog, dialog.device-location-dialog {
+  max-width: calc(100vw - var(--space-6) - var(--safe-left) - var(--safe-right));
+  max-height: calc(100dvh - var(--space-6) - var(--safe-top) - var(--safe-bottom));
+}
+
+/* Shared chevron: drawn, not a glyph, so every font centres it the same way. */
+.ui-chevron { display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0;
+  width: 1em; height: 1em; vertical-align: -0.125em; line-height: 1; transition: transform var(--motion-base); }
+.ui-chevron svg { width: 0.75em; height: 0.75em; fill: none; stroke: currentColor; stroke-width: 1.4;
+  stroke-linecap: square; stroke-linejoin: miter; overflow: visible; }
+.ui-chevron[data-direction="up"] svg { transform: rotate(180deg); }
+.ui-chevron[data-direction="right"] svg { transform: rotate(-90deg); }
+.ui-chevron[data-direction="left"] svg { transform: rotate(90deg); }
+@media (prefers-reduced-motion: reduce) { .ui-chevron { transition: none; } }

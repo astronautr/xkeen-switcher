@@ -1,0 +1,16 @@
+{
+  "snapshots": [
+    {
+      "source": "initial-import",
+      "parse_error": null,
+      "id": "0a146a6c-37fa-4fa8-809c-d191c111b0bb",
+      "sha256": "1594170fb2697f1bff635565d645754cac06ef692e3adb0a95afeb74d91c4394",
+      "size": 1000,
+      "created_at": "2026-11-17T08:55:00+00:00",
+      "original": true,
+      "current": true,
+      "protected": true
+    }
+  ],
+  "operations": []
+}

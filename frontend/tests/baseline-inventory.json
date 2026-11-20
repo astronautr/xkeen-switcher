@@ -1,0 +1,796 @@
+{
+  "status": "Final 428-scenario/748-tile baseline passed two complete read-only zero-pixel repeats; ready for scoped review.",
+  "visualScenarios": 428,
+  "pngTiles": 748,
+  "matrixIds": 52,
+  "screenshotMatrixIds": 40,
+  "geometryManifest": "frontend/tests/visual/baselines/capture-layout.json",
+  "scenarios": [
+    {
+      "id": "A01",
+      "requiredStates": [
+        "setup",
+        "validation-error",
+        "dashboard"
+      ],
+      "capturedVariants": [
+        "setup",
+        "setup-error",
+        "setup-mismatch"
+      ],
+      "visualScenarioCount": 12,
+      "pngTileCount": 12,
+      "newTestCount": 14
+    },
+    {
+      "id": "A02",
+      "requiredStates": [
+        "password-login",
+        "code-login",
+        "invalid",
+        "rate-limited",
+        "server-unavailable"
+      ],
+      "capturedVariants": [
+        "code-error",
+        "code-login",
+        "code-rate-limit",
+        "login-error",
+        "password-login"
+      ],
+      "visualScenarioCount": 20,
+      "pngTileCount": 20,
+      "newTestCount": 28
+    },
+    {
+      "id": "A03",
+      "requiredStates": [
+        "change-password",
+        "sessions",
+        "revoked",
+        "logged-out"
+      ],
+      "capturedVariants": [
+        "change-password",
+        "password-error",
+        "password-mismatch",
+        "revocation-error",
+        "sessions"
+      ],
+      "visualScenarioCount": 20,
+      "pngTileCount": 20,
+      "newTestCount": 25
+    },
+    {
+      "id": "A04",
+      "requiredStates": [
+        "pending",
+        "used",
+        "expired",
+        "replaced",
+        "exhausted"
+      ],
+      "capturedVariants": [
+        "completed",
+        "exhausted",
+        "expired",
+        "pair-create-error",
+        "pair-poll-error",
+        "pending",
+        "replaced"
+      ],
+      "visualScenarioCount": 28,
+      "pngTileCount": 28,
+      "newTestCount": 33
+    },
+    {
+      "id": "M01",
+      "requiredStates": [
+        "requested",
+        "committed"
+      ],
+      "capturedVariants": [
+        "single-confirmed"
+      ],
+      "visualScenarioCount": 4,
+      "pngTileCount": 6,
+      "newTestCount": 5
+    },
+    {
+      "id": "M02",
+      "requiredStates": [
+        "post-pending-get-committed"
+      ],
+      "capturedVariants": [
+        "post-pending"
+      ],
+      "visualScenarioCount": 4,
+      "pngTileCount": 6,
+      "newTestCount": 5
+    },
+    {
+      "id": "M03",
+      "requiredStates": [
+        "lost-response",
+        "restored-intent",
+        "not-found-retry"
+      ],
+      "capturedVariants": [
+        "lost-response"
+      ],
+      "visualScenarioCount": 4,
+      "pngTileCount": 6,
+      "newTestCount": 6
+    },
+    {
+      "id": "M04",
+      "requiredStates": [
+        "busy",
+        "precondition",
+        "rejected"
+      ],
+      "capturedVariants": [
+        "busy",
+        "precondition"
+      ],
+      "visualScenarioCount": 8,
+      "pngTileCount": 16,
+      "newTestCount": 10
+    },
+    {
+      "id": "M05",
+      "requiredStates": [],
+      "capturedVariants": [],
+      "visualScenarioCount": 0,
+      "pngTileCount": 0,
+      "newTestCount": 1
+    },
+    {
+      "id": "M06",
+      "requiredStates": [
+        "entry-exit-draft",
+        "confirmed-pair",
+        "single"
+      ],
+      "capturedVariants": [
+        "chain-draft"
+      ],
+      "visualScenarioCount": 4,
+      "pngTileCount": 6,
+      "newTestCount": 6
+    },
+    {
+      "id": "M07",
+      "requiredStates": [
+        "healthy",
+        "failed",
+        "unverified",
+        "missing-entry",
+        "missing-exit",
+        "hysteria",
+        "failover-paused"
+      ],
+      "capturedVariants": [
+        "chain-failed",
+        "chain-healthy",
+        "chain-unverified",
+        "hysteria",
+        "missing-entry",
+        "missing-exit"
+      ],
+      "visualScenarioCount": 24,
+      "pngTileCount": 36,
+      "newTestCount": 30
+    },
+    {
+      "id": "M08",
+      "requiredStates": [
+        "server-main",
+        "server-fixed",
+        "server-outside",
+        "server-unknown"
+      ],
+      "capturedVariants": [
+        "server-fixed",
+        "server-main",
+        "server-outside",
+        "server-unknown"
+      ],
+      "visualScenarioCount": 16,
+      "pngTileCount": 24,
+      "newTestCount": 21
+    },
+    {
+      "id": "O01",
+      "requiredStates": [
+        "phases",
+        "committed",
+        "rolled-back",
+        "rejected",
+        "unknown",
+        "recovery-failed",
+        "unrecognized-phase"
+      ],
+      "capturedVariants": [
+        "applying",
+        "committed",
+        "preparing",
+        "recovery_failed",
+        "rejected",
+        "rolled_back",
+        "unknown",
+        "validating"
+      ],
+      "visualScenarioCount": 32,
+      "pngTileCount": 48,
+      "newTestCount": 35
+    },
+    {
+      "id": "O02",
+      "requiredStates": [
+        "ephemeral-read",
+        "ephemeral-diagnostic",
+        "ephemeral-mutation"
+      ],
+      "capturedVariants": [
+        "diagnostic",
+        "ephemeral-read",
+        "mutation"
+      ],
+      "visualScenarioCount": 12,
+      "pngTileCount": 18,
+      "newTestCount": 16
+    },
+    {
+      "id": "O03",
+      "requiredStates": [],
+      "capturedVariants": [],
+      "visualScenarioCount": 0,
+      "pngTileCount": 0,
+      "newTestCount": 1
+    },
+    {
+      "id": "O04",
+      "requiredStates": [
+        "out-of-order",
+        "network-failure",
+        "recovered",
+        "stale"
+      ],
+      "capturedVariants": [
+        "status-offline"
+      ],
+      "visualScenarioCount": 4,
+      "pngTileCount": 8,
+      "newTestCount": 6
+    },
+    {
+      "id": "O05",
+      "requiredStates": [],
+      "capturedVariants": [],
+      "visualScenarioCount": 0,
+      "pngTileCount": 0,
+      "newTestCount": 1
+    },
+    {
+      "id": "S01",
+      "requiredStates": [
+        "empty",
+        "fresh",
+        "never-refreshed",
+        "refresh-failed",
+        "editing"
+      ],
+      "capturedVariants": [
+        "empty-subscription",
+        "refresh-failed",
+        "url-editor"
+      ],
+      "visualScenarioCount": 12,
+      "pngTileCount": 20,
+      "newTestCount": 13
+    },
+    {
+      "id": "S02",
+      "requiredStates": [
+        "pending-main",
+        "pending-fixed",
+        "pending-both",
+        "sni",
+        "config",
+        "refresh-failed"
+      ],
+      "capturedVariants": [
+        "pending-config",
+        "pending-sni"
+      ],
+      "visualScenarioCount": 8,
+      "pngTileCount": 12,
+      "newTestCount": 10
+    },
+    {
+      "id": "S03",
+      "requiredStates": [
+        "off",
+        "daily",
+        "interval",
+        "sni-daily",
+        "dirty"
+      ],
+      "capturedVariants": [
+        "daily",
+        "disabled",
+        "interval"
+      ],
+      "visualScenarioCount": 12,
+      "pngTileCount": 12,
+      "newTestCount": 18
+    },
+    {
+      "id": "S04",
+      "requiredStates": [
+        "running",
+        "stopped",
+        "unknown",
+        "stop-confirm"
+      ],
+      "capturedVariants": [
+        "stop-confirm",
+        "stopped",
+        "unknown"
+      ],
+      "visualScenarioCount": 12,
+      "pngTileCount": 20,
+      "newTestCount": 13
+    },
+    {
+      "id": "S05",
+      "requiredStates": [],
+      "capturedVariants": [],
+      "visualScenarioCount": 0,
+      "pngTileCount": 0,
+      "newTestCount": 3
+    },
+    {
+      "id": "S06",
+      "requiredStates": [
+        "enabled",
+        "disabled",
+        "whitelist-priority",
+        "vanished",
+        "auto-stop-restart",
+        "fixed-exit-restriction"
+      ],
+      "capturedVariants": [
+        "enabled-priority-and-recovery",
+        "failover"
+      ],
+      "visualScenarioCount": 8,
+      "pngTileCount": 10,
+      "newTestCount": 10
+    },
+    {
+      "id": "S07",
+      "requiredStates": [
+        "editing",
+        "validation",
+        "partial-failure",
+        "total-failure",
+        "reachable-429",
+        "route-check-warning"
+      ],
+      "capturedVariants": [
+        "connectivity"
+      ],
+      "visualScenarioCount": 4,
+      "pngTileCount": 4,
+      "newTestCount": 5
+    },
+    {
+      "id": "D01",
+      "requiredStates": [
+        "registered",
+        "unregistered",
+        "online",
+        "offline",
+        "filtered",
+        "expanded"
+      ],
+      "capturedVariants": [
+        "inventory"
+      ],
+      "visualScenarioCount": 4,
+      "pngTileCount": 18,
+      "newTestCount": 5
+    },
+    {
+      "id": "D02",
+      "requiredStates": [
+        "register",
+        "rename",
+        "duplicate-name",
+        "rename-existing",
+        "pinned-ip"
+      ],
+      "capturedVariants": [
+        "duplicate-name",
+        "register",
+        "rename"
+      ],
+      "visualScenarioCount": 12,
+      "pngTileCount": 54,
+      "newTestCount": 15
+    },
+    {
+      "id": "D03",
+      "requiredStates": [
+        "unregister-confirm",
+        "undo",
+        "interrupted",
+        "undone",
+        "unavailable"
+      ],
+      "capturedVariants": [
+        "devices-unavailable",
+        "interrupted-change",
+        "undone",
+        "unregister-confirm"
+      ],
+      "visualScenarioCount": 16,
+      "pngTileCount": 62,
+      "newTestCount": 18
+    },
+    {
+      "id": "D04",
+      "requiredStates": [
+        "busy",
+        "conflict",
+        "unknown"
+      ],
+      "capturedVariants": [
+        "busy-keeps-draft"
+      ],
+      "visualScenarioCount": 4,
+      "pngTileCount": 18,
+      "newTestCount": 7
+    },
+    {
+      "id": "D05",
+      "requiredStates": [
+        "fixed",
+        "main",
+        "outside",
+        "ip-conflict",
+        "vanished",
+        "check-result"
+      ],
+      "capturedVariants": [
+        "ip-conflict",
+        "location-picker",
+        "vanished-exit"
+      ],
+      "visualScenarioCount": 12,
+      "pngTileCount": 40,
+      "newTestCount": 13
+    },
+    {
+      "id": "D06",
+      "requiredStates": [
+        "policy-setup",
+        "dirty-discard",
+        "server-marked",
+        "server-unmarked"
+      ],
+      "capturedVariants": [
+        "policy-setup"
+      ],
+      "visualScenarioCount": 4,
+      "pngTileCount": 4,
+      "newTestCount": 6
+    },
+    {
+      "id": "D07",
+      "requiredStates": [],
+      "capturedVariants": [],
+      "visualScenarioCount": 0,
+      "pngTileCount": 0,
+      "newTestCount": 1
+    },
+    {
+      "id": "R01",
+      "requiredStates": [
+        "list",
+        "filtered",
+        "reordered",
+        "default",
+        "readonly",
+        "custom"
+      ],
+      "capturedVariants": [
+        "rules"
+      ],
+      "visualScenarioCount": 4,
+      "pngTileCount": 8,
+      "newTestCount": 5
+    },
+    {
+      "id": "R02",
+      "requiredStates": [
+        "add",
+        "edit",
+        "matcher-kinds",
+        "condition-undo"
+      ],
+      "capturedVariants": [
+        "new-rule"
+      ],
+      "visualScenarioCount": 4,
+      "pngTileCount": 8,
+      "newTestCount": 16
+    },
+    {
+      "id": "R03",
+      "requiredStates": [
+        "dirty-navigation",
+        "restored-scratch",
+        "conflict",
+        "export"
+      ],
+      "capturedVariants": [
+        "dirty-discard"
+      ],
+      "visualScenarioCount": 4,
+      "pngTileCount": 8,
+      "newTestCount": 5
+    },
+    {
+      "id": "R04",
+      "requiredStates": [
+        "preview-add",
+        "preview-delete",
+        "preview-move",
+        "preview-action",
+        "preview-condition",
+        "validation-error"
+      ],
+      "capturedVariants": [
+        "all-diff-kinds",
+        "preview",
+        "validation-error",
+        "validation-unavailable"
+      ],
+      "visualScenarioCount": 16,
+      "pngTileCount": 28,
+      "newTestCount": 18
+    },
+    {
+      "id": "R05",
+      "requiredStates": [
+        "busy-preview",
+        "lost-response",
+        "not-found",
+        "main-navigation"
+      ],
+      "capturedVariants": [
+        "busy-preview"
+      ],
+      "visualScenarioCount": 4,
+      "pngTileCount": 4,
+      "newTestCount": 6
+    },
+    {
+      "id": "R06",
+      "requiredStates": [
+        "versions",
+        "snapshot",
+        "raw",
+        "download",
+        "restore-review"
+      ],
+      "capturedVariants": [
+        "restore-review",
+        "snapshot",
+        "versions"
+      ],
+      "visualScenarioCount": 12,
+      "pngTileCount": 16,
+      "newTestCount": 14
+    },
+    {
+      "id": "R07",
+      "requiredStates": [
+        "drift",
+        "parser-error",
+        "helper-unavailable",
+        "recovery",
+        "import",
+        "reimport",
+        "discard",
+        "unknown"
+      ],
+      "capturedVariants": [
+        "drift",
+        "helper-unavailable",
+        "parser-error",
+        "recovery-recovery_failed",
+        "recovery-unknown"
+      ],
+      "visualScenarioCount": 20,
+      "pngTileCount": 28,
+      "newTestCount": 22
+    },
+    {
+      "id": "H01",
+      "requiredStates": [
+        "event-race",
+        "same-timestamp",
+        "clock-reversal",
+        "rotation"
+      ],
+      "capturedVariants": [
+        "own-result-after-event-race"
+      ],
+      "visualScenarioCount": 4,
+      "pngTileCount": 6,
+      "newTestCount": 6
+    },
+    {
+      "id": "H02",
+      "requiredStates": [
+        "notifications",
+        "activity",
+        "empty",
+        "scrolled",
+        "toast"
+      ],
+      "capturedVariants": [
+        "notifications-empty",
+        "populated-notifications"
+      ],
+      "visualScenarioCount": 8,
+      "pngTileCount": 8,
+      "newTestCount": 10
+    },
+    {
+      "id": "H03",
+      "requiredStates": [
+        "foreign",
+        "failover",
+        "scheduler",
+        "attention",
+        "recovery",
+        "dialog-undo"
+      ],
+      "capturedVariants": [
+        "result-and-undo-above-dialog"
+      ],
+      "visualScenarioCount": 4,
+      "pngTileCount": 4,
+      "newTestCount": 6
+    },
+    {
+      "id": "X01",
+      "requiredStates": [
+        "main",
+        "settings",
+        "devices",
+        "routing",
+        "long-strings",
+        "chain",
+        "empty"
+      ],
+      "capturedVariants": [
+        "devices",
+        "main",
+        "routing",
+        "settings"
+      ],
+      "visualScenarioCount": 24,
+      "pngTileCount": 60,
+      "newTestCount": 33
+    },
+    {
+      "id": "X02",
+      "requiredStates": [
+        "dashboard-639-640-641",
+        "routing-719-720-721",
+        "resized-open-form",
+        "details"
+      ],
+      "capturedVariants": [
+        "routing-form"
+      ],
+      "visualScenarioCount": 16,
+      "pngTileCount": 32,
+      "newTestCount": 25
+    },
+    {
+      "id": "X03",
+      "requiredStates": [
+        "light",
+        "dark",
+        "system",
+        "os-theme-change",
+        "first-paint"
+      ],
+      "capturedVariants": [
+        "settings-theme"
+      ],
+      "visualScenarioCount": 4,
+      "pngTileCount": 4,
+      "newTestCount": 5
+    },
+    {
+      "id": "X04",
+      "requiredStates": [],
+      "capturedVariants": [],
+      "visualScenarioCount": 0,
+      "pngTileCount": 0,
+      "newTestCount": 2
+    },
+    {
+      "id": "X05",
+      "requiredStates": [
+        "keyboard-menu",
+        "dialog-focus",
+        "focus-ring",
+        "disabled-reason",
+        "accessible-catalog"
+      ],
+      "capturedVariants": [
+        "keyboard-choice"
+      ],
+      "visualScenarioCount": 4,
+      "pngTileCount": 6,
+      "newTestCount": 15
+    },
+    {
+      "id": "X06",
+      "requiredStates": [],
+      "capturedVariants": [],
+      "visualScenarioCount": 0,
+      "pngTileCount": 0,
+      "newTestCount": 6
+    },
+    {
+      "id": "X07",
+      "requiredStates": [],
+      "capturedVariants": [],
+      "visualScenarioCount": 0,
+      "pngTileCount": 0,
+      "newTestCount": 2
+    },
+    {
+      "id": "B01",
+      "requiredStates": [],
+      "capturedVariants": [],
+      "visualScenarioCount": 0,
+      "pngTileCount": 0,
+      "newTestCount": 1
+    },
+    {
+      "id": "B02",
+      "requiredStates": [],
+      "capturedVariants": [],
+      "visualScenarioCount": 0,
+      "pngTileCount": 0,
+      "newTestCount": 1
+    },
+    {
+      "id": "B03",
+      "requiredStates": [],
+      "capturedVariants": [],
+      "visualScenarioCount": 0,
+      "pngTileCount": 0,
+      "newTestCount": 1
+    },
+    {
+      "id": "B04",
+      "requiredStates": [],
+      "capturedVariants": [],
+      "visualScenarioCount": 0,
+      "pngTileCount": 0,
+      "newTestCount": 4
+    }
+  ]
+}

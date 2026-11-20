@@ -1,0 +1,48 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  backend:
+    name: Backend tests (Docker image)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - name: Build test image
+        run: docker build --target test -t xk-switcher-test .
+      - name: Run pytest
+        run: |
+          status=0
+          docker run --rm xk-switcher-test pytest -q -rfE --tb=line -p no:cacheprovider > pytest.log 2>&1 || status=$?
+          tail -n 80 pytest.log
+          # Surface failures as annotations, which are visible without signing in.
+          grep -E '^(FAILED|ERROR) ' pytest.log | head -n 25 | sed 's/^/::error title=pytest::/' || true
+          grep -E '^/app/.+:[0-9]+: ' pytest.log | head -n 25 | sed 's/^/::error title=traceback::/' || true
+          exit "$status"
+
+  frontend:
+    name: Frontend build and unit tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version-file: frontend/.node-version
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+      - run: npm --prefix frontend ci --ignore-scripts
+      - run: npm --prefix frontend run build
+      - run: npm --prefix frontend test
+
+  image:
+    name: Production image
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - run: docker build -t xk-switcher .

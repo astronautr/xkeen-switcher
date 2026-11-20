@@ -1,0 +1,98 @@
+{
+  "D02-register-chromium-1440x1000-dark-tile-02.png": {
+    "width": 1440,
+    "height": 1000,
+    "original": "dfc945119d786caf7037f1c69d62e9a3d070998847da2566f852bf493169281b",
+    "alternate": "e339dd219677efc5608820d410287a62f56d7801c862c6fc02afe03a2ba817f2"
+  },
+  "D02-register-chromium-1440x1000-dark-tile-03.png": {
+    "width": 1440,
+    "height": 1000,
+    "original": "12cfaa7c6842bf8e59c15338a3c8ae7a921752c04f58587fb0a808f92270a01f",
+    "alternate": "d55c1d2e811cc477bdf80da95b1cc015c564a09d93ac0cf7b69dd772d1d2f274"
+  },
+  "D02-register-chromium-1440x1000-light-tile-02.png": {
+    "width": 1440,
+    "height": 1000,
+    "original": "fe411450f0cb353f36291aa7ffef3e51dee5d5a1cb73537817df1dd63b4097b1",
+    "alternate": "c81b3f44f22a3d0760cfc3781f7dfa7e52e2638b043751233ae5ed87ed92ca8f"
+  },
+  "D02-register-chromium-1440x1000-light-tile-03.png": {
+    "width": 1440,
+    "height": 1000,
+    "original": "c2a69c46388ba120fe7db7c8cb808abe1a06509ef344bac6d86358948f36bea7",
+    "alternate": "63302674511299c8a0490dcfb91e64190acf4eebbd3c961b738f0bc0b3569d0a"
+  },
+  "D02-rename-chromium-1440x1000-dark-tile-02.png": {
+    "width": 1440,
+    "height": 1000,
+    "original": "2e1cd738ea61fe1abe2ecfdd1a258c98cdc91c8edd48f95436d2c5ad80340e0a",
+    "alternate": "d00a4fb24852aa33e9aee6e2f2a0492765299c7779ae814368e4b7fe6ee3732f"
+  },
+  "D02-rename-chromium-1440x1000-dark-tile-03.png": {
+    "width": 1440,
+    "height": 1000,
+    "original": "5b73333185f4061b5c28eaccbe694f5ffdea889ddebaae7ad4cc6542840dcb14",
+    "alternate": "c024b4d1853ba6f4ce9725c80815db20672de36f28dfaf4e80d8375ebdcfbf52"
+  },
+  "D02-rename-chromium-1440x1000-light-tile-02.png": {
+    "width": 1440,
+    "height": 1000,
+    "original": "982ce703011ea225af6d0e77686efc272d6c0f10bddffda0d432b99612a74f7d",
+    "alternate": "0565c9bf035ced290c16a0b58996dc319f0971e3a2b5049204e0ab5bd410b8cd"
+  },
+  "D02-rename-chromium-1440x1000-light-tile-03.png": {
+    "width": 1440,
+    "height": 1000,
+    "original": "a5a982549ab94c7584f10fb7db445825359447239fa2a41a39401772f8096401",
+    "alternate": "e680ec66e27bc840110c16963752996c9eb44f48e9c676b95793b6adf5efceec"
+  },
+  "D03-unregister-confirm-chromium-1440x1000-dark-tile-02.png": {
+    "width": 1440,
+    "height": 1000,
+    "original": "2e1cd738ea61fe1abe2ecfdd1a258c98cdc91c8edd48f95436d2c5ad80340e0a",
+    "alternate": "d00a4fb24852aa33e9aee6e2f2a0492765299c7779ae814368e4b7fe6ee3732f"
+  },
+  "D03-unregister-confirm-chromium-1440x1000-dark-tile-03.png": {
+    "width": 1440,
+    "height": 1000,
+    "original": "c7f3c8f5637a77971710a050ee82af7859cb0373e304c3d845cf6c6bb69a1b0a",
+    "alternate": "6c59c61a070c0b6d87b2fee2c2822bde8238b69358adb005c8bccdef5f7c1a9b"
+  },
+  "D03-unregister-confirm-chromium-1440x1000-light-tile-02.png": {
+    "width": 1440,
+    "height": 1000,
+    "original": "982ce703011ea225af6d0e77686efc272d6c0f10bddffda0d432b99612a74f7d",
+    "alternate": "0565c9bf035ced290c16a0b58996dc319f0971e3a2b5049204e0ab5bd410b8cd"
+  },
+  "D03-unregister-confirm-chromium-1440x1000-light-tile-03.png": {
+    "width": 1440,
+    "height": 1000,
+    "original": "33acccfc000272aff87591980ae5b83e4a7e0c886e257ee204c144bf19fb4b88",
+    "alternate": "b1e3869900da76e7e2867ddfeffd9c2c4939f9f9bbdae646963f30dc8406683c"
+  },
+  "M02-post-pending-chromium-390x844-dark-tile-01.png": {
+    "width": 390,
+    "height": 844,
+    "original": "18091bf465923577c3fb990f141e6a7ca43d0ddecb91cc84240be2ad021b5f2b",
+    "alternate": "d088eadf8be601f17a72aa8947a9fc54a9102244d318d4f303862f5522208a5b"
+  },
+  "M03-lost-response-chromium-390x844-dark-tile-01.png": {
+    "width": 390,
+    "height": 844,
+    "original": "2c985f726823ad6d2d52f45dd51fa04c636840b195ce913ad726b4efb03348cc",
+    "alternate": "babf8c822b3cb13ab20540f7132fdb6de7ae6503e1a93a39886148455c195534"
+  },
+  "O04-status-offline-chromium-390x844-dark-tile-01.png": {
+    "width": 390,
+    "height": 844,
+    "original": "cbd820866d4de8b238a9a44a6d37b42bceefed8ee4c07ac575373c7536a286ae",
+    "alternate": "1d3eee5988b81357b4a0f1ffe19fccbafbb369d24bcadb941012c78a0a41f060"
+  },
+  "S04-stop-confirm-chromium-390x844-light-tile-01.png": {
+    "width": 390,
+    "height": 844,
+    "original": "f1bd0750a953289aa24c7692528da31e9c9106c394d4b0b2d14ffdf1bd2ff1ba",
+    "alternate": "1f771a071fb1a68c3a0dd6ea5a2fd79cdab730d7afb96166500291911f6e8e9c"
+  }
+}

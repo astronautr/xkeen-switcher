@@ -1,0 +1,374 @@
+{
+  "configured": true,
+  "devices": [
+    {
+      "id": "02:00:00:00:00:12",
+      "mac": "02:00:00:00:00:12",
+      "name": "",
+      "hostname": "Android",
+      "ip": "192.168.3.12",
+      "reserved_ip": "",
+      "ip_pinned": false,
+      "can_pin_ip": false,
+      "segment": "Guest",
+      "segment_policy": "No internet",
+      "effective_policy": "deny",
+      "online": true,
+      "registered": false,
+      "policy": "segment",
+      "revision": "16380e1562ad76caf471dd00e85528f7963f0e189761cca15ae8b87f1afc6b73",
+      "favorite": false,
+      "is_server": false,
+      "location": {
+        "code": null,
+        "in_xkeen": false,
+        "ip": null,
+        "unavailable": false,
+        "ip_conflict": false,
+        "editable": false,
+        "name": null
+      }
+    },
+    {
+      "id": "02:00:00:00:00:45",
+      "mac": "02:00:00:00:00:45",
+      "name": "",
+      "hostname": "MacBookPro",
+      "ip": "192.168.2.45",
+      "reserved_ip": "",
+      "ip_pinned": false,
+      "can_pin_ip": false,
+      "segment": "Home",
+      "segment_policy": "Default",
+      "effective_policy": "default",
+      "online": true,
+      "registered": false,
+      "policy": "segment",
+      "revision": "c0ed03189a546d9b4b9afdf8e8acbf5042ba81a10746299da15669da0ba41dfb",
+      "favorite": false,
+      "is_server": false,
+      "location": {
+        "code": null,
+        "in_xkeen": false,
+        "ip": null,
+        "unavailable": false,
+        "ip_conflict": false,
+        "editable": false,
+        "name": null
+      }
+    },
+    {
+      "id": "02:00:00:00:00:54",
+      "mac": "02:00:00:00:00:54",
+      "name": "Apple TV",
+      "hostname": "Apple-TV",
+      "ip": "192.168.2.54",
+      "reserved_ip": "",
+      "ip_pinned": false,
+      "can_pin_ip": true,
+      "segment": "Home",
+      "segment_policy": "Default",
+      "effective_policy": "policy:Policy0",
+      "online": true,
+      "registered": true,
+      "policy": "policy:Policy0",
+      "revision": "0d26d101b87eee0663001fce5ef807e05c19062b72504dfbd060bc818c0e4264",
+      "favorite": false,
+      "is_server": false,
+      "location": {
+        "code": null,
+        "in_xkeen": true,
+        "ip": null,
+        "unavailable": false,
+        "ip_conflict": false,
+        "editable": true,
+        "name": null
+      }
+    },
+    {
+      "id": "02:00:00:00:00:86",
+      "mac": "02:00:00:00:00:86",
+      "name": "Hue Bridge",
+      "hostname": "Hue",
+      "ip": "192.168.2.86",
+      "reserved_ip": "",
+      "ip_pinned": false,
+      "can_pin_ip": true,
+      "segment": "Home",
+      "segment_policy": "Default",
+      "effective_policy": "default",
+      "online": true,
+      "registered": true,
+      "policy": "default",
+      "revision": "909d80657237816ee8450d54d3e72205435004d8853ed323ea2885290efe4f8a",
+      "favorite": false,
+      "is_server": false,
+      "location": {
+        "code": null,
+        "in_xkeen": false,
+        "ip": null,
+        "unavailable": false,
+        "ip_conflict": false,
+        "editable": false,
+        "name": null
+      }
+    },
+    {
+      "id": "02:00:00:00:00:32",
+      "mac": "02:00:00:00:00:32",
+      "name": "iPhone",
+      "hostname": "iPhone",
+      "ip": "192.168.2.32",
+      "reserved_ip": "",
+      "ip_pinned": false,
+      "can_pin_ip": true,
+      "segment": "Home",
+      "segment_policy": "Default",
+      "effective_policy": "policy:Policy0",
+      "online": true,
+      "registered": true,
+      "policy": "policy:Policy0",
+      "revision": "64b8f7abed50265f7428aa534cd39d29e4d7fdc71e6f1212b86ea601f1fac7a4",
+      "favorite": false,
+      "is_server": false,
+      "location": {
+        "code": null,
+        "in_xkeen": true,
+        "ip": null,
+        "unavailable": false,
+        "ip_conflict": false,
+        "editable": true,
+        "name": null
+      }
+    },
+    {
+      "id": "02:00:00:00:00:70",
+      "mac": "02:00:00:00:00:70",
+      "name": "Kitchen speaker",
+      "hostname": "Speaker",
+      "ip": "192.168.2.70",
+      "reserved_ip": "",
+      "ip_pinned": false,
+      "can_pin_ip": true,
+      "segment": "Home",
+      "segment_policy": "Default",
+      "effective_policy": "default",
+      "online": true,
+      "registered": true,
+      "policy": "default",
+      "revision": "5323a2b14d4bbf33ddf88eb7c8d9300eb50ddd4eb2ed14598d116716491e09da",
+      "favorite": false,
+      "is_server": false,
+      "location": {
+        "code": null,
+        "in_xkeen": false,
+        "ip": null,
+        "unavailable": false,
+        "ip_conflict": false,
+        "editable": false,
+        "name": null
+      }
+    },
+    {
+      "id": "02:00:00:00:00:10",
+      "mac": "02:00:00:00:00:10",
+      "name": "mac-mini",
+      "hostname": "mac-mini",
+      "ip": "192.168.2.10",
+      "reserved_ip": "",
+      "ip_pinned": false,
+      "can_pin_ip": true,
+      "segment": "Home",
+      "segment_policy": "Default",
+      "effective_policy": "policy:Policy0",
+      "online": true,
+      "registered": true,
+      "policy": "policy:Policy0",
+      "revision": "2196096e4f2e9671a12272ad61315e19f622f515aa6bd2d5e5156cb9aaaa0fae",
+      "favorite": false,
+      "is_server": false,
+      "location": {
+        "code": null,
+        "in_xkeen": true,
+        "ip": null,
+        "unavailable": false,
+        "ip_conflict": false,
+        "editable": true,
+        "name": null
+      }
+    },
+    {
+      "id": "02:00:00:00:00:60",
+      "mac": "02:00:00:00:00:60",
+      "name": "Printer",
+      "hostname": "Printer",
+      "ip": "192.168.2.60",
+      "reserved_ip": "",
+      "ip_pinned": false,
+      "can_pin_ip": true,
+      "segment": "Home",
+      "segment_policy": "Default",
+      "effective_policy": "deny",
+      "online": true,
+      "registered": true,
+      "policy": "deny",
+      "revision": "aa9bc6fe2ee127b0d667dfc2cd4cda3a07600f467bdef9a3633f385b2124f31a",
+      "favorite": false,
+      "is_server": false,
+      "location": {
+        "code": null,
+        "in_xkeen": false,
+        "ip": null,
+        "unavailable": false,
+        "ip_conflict": false,
+        "editable": false,
+        "name": null
+      }
+    },
+    {
+      "id": "02:00:00:00:00:91",
+      "mac": "02:00:00:00:00:91",
+      "name": "",
+      "hostname": "",
+      "ip": "192.168.2.91",
+      "reserved_ip": "",
+      "ip_pinned": false,
+      "can_pin_ip": false,
+      "segment": "Home",
+      "segment_policy": "Default",
+      "effective_policy": "default",
+      "online": false,
+      "registered": false,
+      "policy": "segment",
+      "revision": "02c5791594956d74961f34e779a4cfd846913b7ec1f8a8f0de70704ec0249f02",
+      "favorite": false,
+      "is_server": false,
+      "location": {
+        "code": null,
+        "in_xkeen": false,
+        "ip": null,
+        "unavailable": false,
+        "ip_conflict": false,
+        "editable": false,
+        "name": null
+      }
+    },
+    {
+      "id": "02:00:00:00:00:37",
+      "mac": "02:00:00:00:00:37",
+      "name": "iPad",
+      "hostname": "iPad",
+      "ip": "192.168.2.37",
+      "reserved_ip": "",
+      "ip_pinned": false,
+      "can_pin_ip": true,
+      "segment": "Home",
+      "segment_policy": "Default",
+      "effective_policy": "default",
+      "online": false,
+      "registered": true,
+      "policy": "segment",
+      "revision": "97f1447d761a53dd5a732619b5c6a0480bd0de57b7fb325b7280fcd98cdb797d",
+      "favorite": false,
+      "is_server": false,
+      "location": {
+        "code": null,
+        "in_xkeen": false,
+        "ip": null,
+        "unavailable": false,
+        "ip_conflict": false,
+        "editable": false,
+        "name": null
+      }
+    },
+    {
+      "id": "02:00:00:00:00:21",
+      "mac": "02:00:00:00:00:21",
+      "name": "MacBookPro",
+      "hostname": "MacBookPro",
+      "ip": "192.168.2.21",
+      "reserved_ip": "",
+      "ip_pinned": false,
+      "can_pin_ip": true,
+      "segment": "Home",
+      "segment_policy": "Default",
+      "effective_policy": "policy:Policy0",
+      "online": false,
+      "registered": true,
+      "policy": "policy:Policy0",
+      "revision": "b183ec953a50f57e27b0ca0a126ec51a06a47559dadfc71a59f96210709617d6",
+      "favorite": false,
+      "is_server": false,
+      "location": {
+        "code": null,
+        "in_xkeen": true,
+        "ip": null,
+        "unavailable": false,
+        "ip_conflict": false,
+        "editable": true,
+        "name": null
+      }
+    }
+  ],
+  "policies": [
+    {
+      "value": "policy:Policy0",
+      "label": "XKeen"
+    },
+    {
+      "value": "default",
+      "label": "Default"
+    },
+    {
+      "value": "segment",
+      "label": "Segment default"
+    },
+    {
+      "value": "deny",
+      "label": "No internet"
+    }
+  ],
+  "locations": {
+    "revision": null,
+    "main_code": "fi",
+    "main_route": {
+      "mode": "single",
+      "exit_code": "fi",
+      "exit_name": "Finland \ud83c\uddeb\ud83c\uddee",
+      "entry_code": null,
+      "entry_name": null
+    },
+    "pending_operation": null,
+    "available": [
+      {
+        "code": "fi",
+        "name": "Finland \ud83c\uddeb\ud83c\uddee",
+        "protocol": "vless"
+      },
+      {
+        "code": "de",
+        "name": "Germany \ud83c\udde9\ud83c\uddea",
+        "protocol": "vless"
+      },
+      {
+        "code": "se",
+        "name": "Sweden \ud83c\uddf8\ud83c\uddea",
+        "protocol": "vless"
+      }
+    ],
+    "policy_ids": [
+      "policy:Policy0"
+    ],
+    "managed": false,
+    "settings": {
+      "revision": null,
+      "policy_ids": [
+        "policy:Policy0"
+      ],
+      "server_device_id": null,
+      "source": "environment"
+    }
+  },
+  "operations": [],
+  "updated_at": "2026-11-17T08:55:00+00:00"
+}

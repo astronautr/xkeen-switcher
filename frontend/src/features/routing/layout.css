@@ -1,0 +1,4 @@
+/* Routing supplies its own safe-area layout inside the authenticated shell. */
+.app:has(> .scroll > .routing-root) {
+  padding: 0;
+}

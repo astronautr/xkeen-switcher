@@ -1,0 +1,143 @@
+{
+  "schemaVersion": 1,
+  "sourceRevision": "2b73899a2a55d7bff44db9bec7c0cf4beefe5420",
+  "baselineWorktreeRevision": "7715d8f18cd62708072433ede58d7c7cea260961",
+  "target": "legacy",
+  "platform": "darwin",
+  "architecture": "arm64",
+  "osVersion": "27.2.1",
+  "osBuild": "26B131",
+  "node": "24.18.0",
+  "playwright": "1.64.1",
+  "browser": {
+    "name": "chromium-headless-shell",
+    "revision": "1248",
+    "version": "156.0.8078.4"
+  },
+  "locale": "en-US",
+  "timezone": "Europe/Moscow",
+  "visualTime": "2026-11-17T09:00:00Z",
+  "deviceScaleFactor": 2,
+  "maxDiffPixels": 0,
+  "retries": 0,
+  "motion": "reduce",
+  "fonts": [
+    {
+      "path": "/System/Library/Fonts/Menlo.ttc",
+      "sha256": "f2d400484a6aace67980730ec0a9ef24ce9e535a2604f118e6fdc2510021b85f"
+    },
+    {
+      "path": "/System/Library/Fonts/SFNSMono.ttf",
+      "sha256": "fc99d1608690ab5f2e1f78af9fbd4ef9ffef61f3eef36ceeea3ac3c844e652d4"
+    },
+    {
+      "path": "/System/Library/Fonts/Apple Color Emoji.ttc",
+      "sha256": "12bc8221a908c5bcf05f0fce940d3c3f6e9d09d8d806ffe31a969b4ac9be8f9e"
+    }
+  ],
+  "override": "Native macOS only, approved by user; no container or Linux/device portability claim. Coordinator selected Playwright1.64.1 to match cached pinned browser before baselines.",
+  "canvas": "Unmasked; browser clock paused at fixed time; reduced-motion renders a static frame. Ordinary animation separately checked by X07.",
+  "status": "Final 428-scenario/748-tile baseline passed two complete read-only zero-pixel repeats; ready for scoped review.",
+  "capture": "CSS viewport tiles,128px overlap; fonts/images ready, finite WebAnimations finish then16ms completion frame before geometry;32ms per public-scroll frame; screenshots animations disabled/caret hidden. No masks or tolerances.",
+  "rasterizationDecision": "FullPage compositor instability persisted at CSS/device scale and with software/reflow. Shared viewport tiles passed108focused comparisons; QA accepted architecture and representative sequences. No per-case crops, masks, tolerances or rejected flags retained.",
+  "accessibility": "axe4.11.0 ordinary audit guards exact existing contrast fingerprints on both UI targets; not a WCAG conformance claim. Legacy native-dialog forward focus wrap remains scoped expected failure.",
+  "captureGeometry": {
+    "policy": "viewport tiles for document or active modal/drawer plane; existing independent clipping preserved",
+    "manifest": "frontend/tests/visual/baselines/capture-layout.json",
+    "overlapCssPixels": 128,
+    "guards": [
+      "exact viewport/document/plane dimensions and tile count match legacy manifest",
+      "actual public scroll offsets and final-bottom coverage",
+      "stable scenario phase/dialog/popover/toast state",
+      "visible primary controls covered; independent clip geometry and scroll preserved"
+    ]
+  },
+  "screenshotScale": "css (pinned Playwright toHaveScreenshot default); renderer deviceScaleFactor=2, PNG width equals CSS viewport width",
+  "harnessFilesSha256": {
+    "frontend/.node-version": "55075b5ec4e8b31936cbbc282b8829116d1fd48f2f2f1856dee592a6650700ce",
+    "frontend/package-lock.json": "fcdc3860a4f18b6c1d26217fa6dabe2a4a9a3792ba2895fed8763c0e5d0d88a4",
+    "frontend/package.json": "859a9b97d663052f9a947b464d457a6a66506259f544b8097e1c718450d40962",
+    "frontend/playwright.config.ts": "5d55dce7a8b8781298e29db8c3943ee912ae20c15eaf689086b9a501fa6c840e",
+    "frontend/tests/behavior/activity.spec.ts": "31e7ae417beb9175f84fe56c50e70b5f15caf79caa30219c0e5477f4ef489c36",
+    "frontend/tests/behavior/auth-contracts.spec.ts": "5d0d412118714cee1508cc5ff14f340b1232c6cfd153f6d5ee2af83236f61c7a",
+    "frontend/tests/behavior/auth-settings.spec.ts": "9f00a51c70be5d289aeed162726a4ae7c6f14a2b52c192f655bdb92988b6d908",
+    "frontend/tests/behavior/crossscreen-contracts.spec.ts": "a3e40e9bb79c27af666996a103b421184725ff8b07fd51580cd05f7aa78c27e1",
+    "frontend/tests/behavior/crossscreen.spec.ts": "c28c54bb7259a7049517dd131acfe2ff95c8d7a7d81b4b57decae4913bb9a67d",
+    "frontend/tests/behavior/devices.spec.ts": "9669f2cb840323e774fe6a48a8ec1bfb1516c32feed44feb442d1205f9c362b3",
+    "frontend/tests/behavior/legacy-defects.spec.ts": "c44b706142b0bdf643638f7ad3851f909dca26b3cfffe80fe7884b70b5228e3f",
+    "frontend/tests/behavior/main-contracts.spec.ts": "3163d40aea450a7f93f3735910e53de06e32f4fe0e809046f6420af26c73ff07",
+    "frontend/tests/behavior/main.spec.ts": "208e36cb0f8fade9394110bab9bd7af6cabce43ebe82b412a93e1a18459ce06c",
+    "frontend/tests/behavior/navigation.spec.ts": "0874f8ccffc6ab6c84b9486db393ae90fc5bb72852c88cb9d660c2fb80530171",
+    "frontend/tests/behavior/overlay-hit.spec.ts": "6926e94025ee884a766e1cbe7e5ecb809502768f770ae29e2ad3b3d1af3f607d",
+    "frontend/tests/behavior/responsive.spec.ts": "5bafea1a7d4acbaa47331077fa0055ea5a60cbd7b5b03768f3ff5ce8922ba6ec",
+    "frontend/tests/behavior/routing.spec.ts": "babb3033f560ef0fbd088d4d4ac73b6540dc7db914f8401683b67d6ae19e5547",
+    "frontend/tests/fixtures/connectivity.json": "16183eb9049ed9742982e40c0496d109b092eabf2bb7fd157ff499dbe9280e00",
+    "frontend/tests/fixtures/devices-undo-context.json": "f283d631fd5c6551d01746ff92b19a4559d5ff7cfb22218dce81fcf638319f45",
+    "frontend/tests/fixtures/devices.json": "5e00d79c0512e23df6b526a14c8221e0d3309afd6668468398e7d7f37b432643",
+    "frontend/tests/fixtures/failover.json": "f03e84f532a9b9e3576eceac113a8b61a8476590013f97c1e5388898e13158ea",
+    "frontend/tests/fixtures/hysteria-location.json": "48431d88dd393c67cd860ccf733da2d36069bc3d14902197c9453e8a97b50e4e",
+    "frontend/tests/fixtures/main-contexts.json": "d1bda6309bff10ea2b5cd36f2db7ab144d2a5c91e80c44fb55c40c6edb2140ad",
+    "frontend/tests/fixtures/main-operation.json": "42c846d2eb15dbba35b3d3a564086496f082137075653215c9dff575e9844a07",
+    "frontend/tests/fixtures/main-public-operation.json": "f2ba3053cb9e9d19d7d63459e82f643ccc10ae8135cbfb54c8a58511d64c362c",
+    "frontend/tests/fixtures/routing-diff-context.json": "f69d624199cfd1285e904e1eb1fb167f0c8844896b62083f2011ab0a8833e7c7",
+    "frontend/tests/fixtures/routing-draft.json": "413f3a43bedc640db40344aaf1e4833c7ec7c7c75d0c52b495fbae426d158e2e",
+    "frontend/tests/fixtures/routing-history.json": "2b1fa9995510ea0ef730c9eedb974a500638a25737b0855b7f5fbdbf983f07b1",
+    "frontend/tests/fixtures/routing-invalid-context.json": "c095e3f4b874e9818947a3fd5b828ec82452d8a8099c44b24a1920b090fd96aa",
+    "frontend/tests/fixtures/routing-original.jsonc": "1594170fb2697f1bff635565d645754cac06ef692e3adb0a95afeb74d91c4394",
+    "frontend/tests/fixtures/routing-preview.json": "9dc4cad039c83fa192e2f283443043dceee171cd6d6195111d0c81b05f8e302d",
+    "frontend/tests/fixtures/routing-restore-context.json": "eae8191a0718f134341aaab5ffa24c6fac9fe09f2c706cf8a6ea5a69500949c2",
+    "frontend/tests/fixtures/routing-snapshot.json": "746bf73d13e1cb958ceeb7fdd293d5cec981e9d173fcf8579220c9587c42ec75",
+    "frontend/tests/fixtures/routing.json": "0142cc5067667029734b5c2996159975a5da24220ad0fa6c2c2167ea69296c51",
+    "frontend/tests/fixtures/sessions.json": "002d342b3f28ab54db62326124ebe72a3139792f3245da38dd77f757f029bb8e",
+    "frontend/tests/fixtures/status.json": "ff9d7f498f6b6a0c687835bb021ca682d3a1182d6dfe89f8e513a55acaa6b9dc",
+    "frontend/tests/integration/http.spec.ts": "f299df70796f8f766fa21164f76f8e9a958abc3a0096d65ac5affe0484cf9b73",
+    "frontend/tests/support/devices.ts": "af77c788e144ab4961e99193b4703e9fdbdf4fd5887afdce93216be9b8e9db37",
+    "frontend/tests/support/environment.ts": "a7ba5b554c12700114013150ec6e0f7d132c364d3322e021753321862218cef2",
+    "frontend/tests/support/main-contracts.ts": "cc466bc2fc35f45b7dcc0bdee3bc9d70782a98ed3183eeec6a1108d2dd31a2e9",
+    "frontend/tests/support/routing.ts": "789ca19c884e2b836d53657fd806fec6dc0c9a28de15e6a4bf96cad0b038ad94",
+    "frontend/tests/support/scenario.ts": "65713b83d859c7b3a226222f0e677e8913526855e65837b674420b92ce1bb9d0",
+    "frontend/tests/support/test.ts": "9be5442021a9d496ce118502daaa80a4f80275ddf5e4223af833e9c9c551360c",
+    "frontend/tests/support/visual.ts": "af7ca3492eec525093defb2d65c9f1afab60bcc2d8ec0ca1d827d3dba94aafe2",
+    "frontend/tests/visual/activity.spec.ts": "f7c5e404aba3c6bd88866492ca17be4576aa81936c1ab717b0a3f4555e54a480",
+    "frontend/tests/visual/auth-contracts.spec.ts": "e981c7c06d2336f88e274e3d51a61ca6aff2f9480f991166c33b8e8e8775549c",
+    "frontend/tests/visual/main-contracts.spec.ts": "b3f2ecad1fdbaad4533db035d7ece893fa663798c182d6858faa6063302cb5ca",
+    "frontend/tests/visual/screens.spec.ts": "d3088cfd00bf26f4e00dde598845df5431e07aba7d2383b83b1584fa0c277d2e",
+    "tests/test_ui_contracts.py": "c97b6371f5fb9a88bf429e87b6770f8312583e8c81ead7f34d7cde2806d591a6",
+    "tests/test_ui_fixture_dtos.py": "24844f5193ac6eb929f74998951fd7a2b5b9bec792996cdd7f0b51cf54b0b706",
+    "tests/test_ui_launcher.py": "1f233e7080a52088fffe5d1d6af37557030cfde75612b5867aa62bcab48ead76",
+    "tests/test_ui_pending_contexts.py": "d233d15d317a207055d249d11b38f54925d585d4db067949e00152fa3f82b914",
+    "tests/ui_support/server.py": "fae2b582f308d3996028cfc0043425691d96c96458bd4860deabf1696322e14c"
+  },
+  "harnessSha256": "7c3ad54f26fcf7ab4fa4da844f9a9102bbc31d1887aeb0de92d9b6869d34b87c",
+  "verification": {
+    "visualScenarios": 428,
+    "pngTiles": 748,
+    "capture": {
+      "log": "g1-tiles-consistent-capture.log",
+      "passed": 424,
+      "duration": "4.3m"
+    },
+    "readOnlyRepeats": [
+      {
+        "log": "g1-round2-repeat-1.log",
+        "passed": 428,
+        "duration": "2.9m"
+      },
+      {
+        "log": "g1-round2-repeat-2.log",
+        "passed": 428,
+        "duration": "2.9m"
+      }
+    ],
+    "execution": "Two independent read-only runs overlapped, each workers=1/retries=0 with separate local port, temporary backend and output directory.",
+    "inputHashesUnchangedAfterBoth": true,
+    "hashInventory": ".superpowers/sdd/2026-11-17-react-ui-migration/g1-round2-baseline-sha256.json",
+    "captureLayoutSha256": "0ebb26d61b5b0bda6a5040032aaf238df1c2ed48b34b631911b611690bf47bb3",
+    "supplementalCapture": {
+      "log": "g1-r04-validation-capture.log",
+      "passed": 4,
+      "duration": "3.6s",
+      "state": "R04 validation-error"
+    }
+  }
+}

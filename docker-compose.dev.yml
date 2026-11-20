@@ -1,0 +1,7 @@
+services:
+  xk-switcher:
+    volumes:
+      - ./src:/app/src:ro
+    environment:
+      ROUTER_HOST: "mock"
+      LOG_LEVEL: "DEBUG"

@@ -1,0 +1,6 @@
+#!/bin/sh
+# Entware executes this before S05xkeen. Only boot startup invokes recovery.
+case "${1:-start}" in
+  start) /opt/bin/xk-routing boot;;
+  stop) :;;
+esac

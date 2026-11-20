@@ -1,0 +1,18 @@
+[project]
+name = "xk-switcher"
+version = "0.3.0"
+description = "Web dashboard for switching XKeen/Xray locations on Keenetic routers"
+license = "MIT"
+authors = [{ name = "Dmitriy Gerasimenko" }]
+requires-python = ">=3.12"
+
+[project.urls]
+Homepage = "https://github.com/astronautr/xkeen-switcher"
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+addopts = "-v"

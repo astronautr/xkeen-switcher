@@ -1,0 +1,17 @@
+// Local demo; no SSH connection is made.
+{"routing":{"domainStrategy":"AsIs","rules":[
+// Vulnerable UDP ports
+{"type":"field","inboundTag":["redirect","tproxy"],"outboundTag":"block","network":"udp","port":"135,137,138,139"},
+// Analytics
+{"type":"field","inboundTag":["redirect","tproxy"],"outboundTag":"block","domain":["appcenter.ms"]},
+// Google
+{"type":"field","inboundTag":["redirect","tproxy"],"outboundTag":"vless-reality","domain":["ext:geosite_v2fly.dat:google"]},
+// Direct domains
+{"type":"field","inboundTag":["redirect","tproxy"],"outboundTag":"direct","domain":["domain:example.org","ext:geosite_v2fly.dat:yandex"]},
+// Local networks
+{"type":"field","inboundTag":["redirect","tproxy"],"outboundTag":"direct","ip":["ext:geoip_v2fly.dat:private"]},
+// Torrent
+{"type":"field","inboundTag":["redirect","tproxy"],"outboundTag":"direct","protocol":["bittorrent"]},
+// Everything else
+{"type":"field","inboundTag":["redirect","tproxy"],"outboundTag":"vless-reality"}
+]}}

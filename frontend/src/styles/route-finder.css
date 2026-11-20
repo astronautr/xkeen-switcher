@@ -1,0 +1,228 @@
+/* Route finder: opened from Locations. A side panel on desktop, a bottom sheet on phones
+   that follows the Activity sheet (dashed grip, terminal header, two open heights). */
+.route-finder-open { appearance: none; display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center;
+  gap: 12px; box-sizing: border-box; width: 100%; min-height: 48px; margin: 0 0 var(--space-3); padding: 8px 12px;
+  border: 1px dashed var(--control-border); background: transparent; color: var(--app-fg);
+  font: inherit; font-size: var(--font-sm); line-height: 1.4; text-align: left; cursor: pointer; }
+@media (hover: hover) { .route-finder-open:hover { background: var(--surface-2); border-style: solid; } }
+.route-finder-open:focus-visible { outline: var(--focus-width) solid var(--focus-color); outline-offset: var(--focus-offset); }
+/* The sprite icon shares the header icons' 24px grid, 1.65 stroke and text colour. */
+.route-finder-icon { display: block; width: 20px; height: 20px; color: var(--app-fg); }
+.route-finder-open-text { display: flex; align-items: baseline; column-gap: 12px; min-width: 0; }
+.route-finder-open-title { flex-shrink: 0; font-weight: 600; }
+.route-finder-open-detail { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  color: var(--readable-muted); font-size: var(--font-xs); font-variant-numeric: tabular-nums; }
+.route-finder-open-detail[data-busy="true"] { color: var(--accent); }
+.route-finder-open-detail > .terminal-action-glyph { margin-left: .5ch; }
+.route-finder-open .ui-disclosure-chevron { color: var(--readable-muted); }
+
+dialog.route-sheet { position: fixed; inset: 0 0 0 auto; box-sizing: border-box; width: min(460px, 100%); max-width: 100%;
+  height: 100%; max-height: none; margin: 0; padding: 0; overflow: hidden;
+  border: 0; border-left: 1px solid var(--control-border); background: var(--surface); color: var(--app-fg);
+  box-shadow: var(--shadow-panel); font: inherit; font-size: var(--font-sm); line-height: 1.5; }
+dialog.route-sheet::backdrop { background: var(--scrim); }
+/* Notifications stay in the modal's top layer without growing the bottom sheet. */
+dialog.route-sheet > .toast-stack { position: absolute; inset: auto var(--space-3) max(var(--space-3), var(--safe-bottom));
+  margin: 0; max-height: 40%; pointer-events: none; }
+.route-sheet-frame { box-sizing: border-box; display: flex; flex-direction: column; height: 100%;
+  padding-top: var(--safe-top); padding-right: var(--safe-right); }
+.route-sheet-grip { display: none; }
+.route-sheet-head { display: flex; align-items: center; gap: 10px; flex-shrink: 0; min-height: 56px; padding: 0 18px;
+  border-bottom: 1px dashed var(--divider); }
+.route-sheet-title { margin: 0; font: inherit; font-size: var(--font-sm); font-weight: 400; white-space: nowrap; }
+.route-sheet-close { margin-left: auto; }
+.route-sheet-close.t-btn { margin-top: 0; margin-bottom: 0; }
+.route-sheet-body { flex: 1; min-height: 0; overflow-y: auto; overscroll-behavior: contain;
+  padding: 16px 18px calc(24px + env(safe-area-inset-bottom));
+  scrollbar-gutter: stable; scrollbar-width: thin; scrollbar-color: var(--control-border) var(--surface); }
+.route-sheet-label { display: block; margin-bottom: 6px; color: var(--readable-muted); font-size: var(--font-xs); }
+.route-sheet-controls { display: flex; gap: 8px; align-items: stretch; }
+.route-sheet-controls > :first-child { flex: 1; min-width: 0; }
+.route-sheet-controls .menu-trigger { width: 100%; min-height: 40px; }
+.route-sheet-check.t-btn { flex-shrink: 0; min-height: 40px; margin: 0; }
+/* While a run is active the same control stops it; the spinner keeps showing that it runs. */
+.route-sheet-check.t-btn[data-action="stop"]:not([aria-disabled="true"]) { color: var(--danger); border-color: var(--danger); }
+.route-sheet-report { display: flex; align-items: center; justify-content: space-between; gap: 8px;
+  min-height: 32px; margin: 14px 0 0; border-top: 1px dashed var(--divider);
+  color: var(--readable-muted); font-size: var(--font-xs); font-variant-numeric: tabular-nums; }
+.route-sheet-report[data-busy="true"] { color: var(--accent); }
+.route-sheet-report .route-link { flex-shrink: 0; align-self: stretch; }
+.route-sheet-notice { margin: 8px 0 0; padding: 8px 10px; border: 1px solid var(--danger); background: var(--danger-soft);
+  font-size: var(--font-xs); overflow-wrap: anywhere; }
+
+.route-group h3 { margin: 18px 0 2px; font: inherit; font-size: var(--font-xs); font-weight: 400; letter-spacing: .08em;
+  text-transform: uppercase; color: var(--readable-muted); }
+.route-group h3 span { margin-left: 8px; letter-spacing: normal; text-transform: none; }
+.route-group ul { margin: 0; padding: 0; list-style: none; }
+.route-row { display: grid; grid-template-columns: minmax(0, 1fr) 8ch; column-gap: 10px; align-items: center;
+  min-height: 52px; padding: 8px 0; border-top: 1px dashed var(--divider); }
+.route-row-name { grid-column: 1; overflow-wrap: anywhere; }
+.route-row-status { grid-column: 1; display: flex; flex-direction: column; align-items: flex-start; min-width: 0; }
+.route-row-state { appearance: none; display: inline-flex; flex-wrap: wrap; align-items: center; column-gap: 6px;
+  min-height: 28px; margin: 0; padding: 0; border: 0; background: transparent; color: var(--readable-muted);
+  font: inherit; font-size: var(--font-xs); text-align: left; cursor: pointer; }
+span.route-row-state { cursor: default; }
+.route-row-state:focus-visible { outline: var(--focus-width) solid var(--focus-color); outline-offset: 2px; }
+.route-row-state[data-state="working"] { color: var(--success); }
+.route-row-state[data-state="unstable"], .route-row-state[data-state="unavailable"] { color: var(--warn); }
+.route-row-state[data-state="failed"], .route-row-state[data-state="unsupported"] { color: var(--danger); }
+.route-row-state[data-state="checking"] { color: var(--accent); }
+.route-row-glyph { display: inline-block; width: 1ch; text-align: center; }
+.route-row-apply.t-btn { min-height: 40px; margin: 0; color: var(--accent); font-weight: 600; }
+.route-row-main { padding: 0 4px; color: var(--success); font-size: var(--font-xs); white-space: nowrap; }
+.route-row-details { grid-column: 1 / -1; margin-top: 6px; padding: 8px 10px; background: var(--surface-2);
+  font-size: var(--font-xs); overflow-wrap: anywhere; }
+.route-row-details p { margin: 0 0 6px; }
+.route-row-checked { color: var(--readable-muted); }
+.route-round + .route-round { margin-top: 6px; }
+.route-round-head { margin: 0 0 2px; }
+.route-round ul { margin: 0; padding: 0; list-style: none; }
+.route-round li { display: grid; grid-template-columns: 1.5ch minmax(0, 1fr) auto; gap: 6px; }
+.route-round li[data-ok="true"] > :first-child { color: var(--success); }
+.route-round li[data-ok="false"] > :first-child { color: var(--danger); }
+.route-round-target { overflow-wrap: anywhere; }
+
+@media (max-width: 640px) {
+  dialog.route-sheet { inset: auto 0 0 0; width: 100%; height: auto; border-left: 0; border-top: 1px solid var(--control-border);
+    box-shadow: none; }
+  .route-sheet-frame { height: var(--sheet-h, 78dvh); padding-top: 0; padding-right: 0; }
+  .route-sheet-frame.is-animating { transition: height var(--motion-base) cubic-bezier(.2, .8, .2, 1); }
+  .route-sheet-grip { display: grid; place-items: center; height: 14px; flex-shrink: 0; cursor: grab; touch-action: none; }
+  .route-sheet-grip::before { content: ""; width: 44px; border-top: 2px dashed var(--control-border); }
+  .route-sheet-head { min-height: 44px; padding: 0 4px 0 16px; touch-action: none; user-select: none; -webkit-user-select: none; }
+  .route-sheet-close { display: grid; place-items: center; width: 44px; height: 44px; padding: 0; border: 0;
+    background: transparent; color: inherit; font-size: var(--font-lg); cursor: pointer; }
+  .route-sheet-body { padding: 12px 16px calc(16px + env(safe-area-inset-bottom)); }
+  .route-sheet-controls .menu-trigger, .route-sheet-check.t-btn { min-height: var(--control-touch); }
+  /* Apply keeps a 44px target but reads as bracket text, like other phone row actions. */
+  .route-row-apply.t-btn, .route-row-apply.t-btn:hover { min-height: var(--control-touch); padding-inline: 4px;
+    border-color: transparent; background: transparent; }
+  .route-row { min-height: 48px; padding: 6px 0; }
+  button.route-row-state, span.route-row-state { min-height: var(--control-touch); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .route-sheet-frame.is-animating { transition: none; }
+}
+
+/* Ping belongs to the location list it updates, apart from the route finder above. */
+/* A whole-pixel row height keeps the list still while the ping button changes state. */
+.location-ping-bar { display: flex; align-items: center; flex-wrap: wrap; gap: var(--space-1) var(--space-3);
+  min-height: 28px; margin: var(--space-2) 0 var(--space-1); }
+.location-ping-label { color: var(--app-fg); font-size: var(--font-xs); white-space: nowrap; }
+.location-ping-bar .location-check-summary { flex: 1 1 220px; min-width: 0; margin: 0; }
+.location-ping-bar .check-all-btn { flex-shrink: 0; margin: 0 0 0 auto; }
+/* Phones: one 44px line each, text-weight actions instead of boxed buttons. */
+@media (max-width: 640px) {
+  .route-finder-open { min-height: var(--control-touch); gap: 10px; padding: 0 8px 0 12px; }
+  .route-finder-open-detail[data-idle] { position: absolute; width: 1px; height: 1px; overflow: hidden;
+    clip-path: inset(50%); white-space: nowrap; }
+  .location-ping-bar { flex-wrap: nowrap; gap: var(--space-2); min-height: var(--control-touch); margin: var(--space-1) 0 0; }
+  .location-ping-label { display: none; }
+  .location-ping-bar .location-check-summary { flex: 1 1 auto; flex-direction: column; gap: 0; line-height: 1.35; }
+  .mobile-dashboard-home .location-ping-bar .check-all-btn,
+  .mobile-dashboard-home .location-ping-bar .check-all-btn:hover:not(:disabled):not([aria-disabled="true"]) {
+    min-height: var(--control-touch); margin: 0; padding-inline: 4px; border-color: transparent; background: transparent;
+    color: var(--app-fg); }
+  .mobile-dashboard-home .location-ping-bar .check-all-btn::before,
+  .mobile-dashboard-home .location-ping-bar .check-all-btn::after { color: inherit; }
+  .mobile-dashboard-home .location-ping-bar .check-all-btn[aria-disabled="true"] { border-color: transparent; color: var(--muted); }
+}
+
+/* Steps reuse Main's segmented control: full width, bracket faces, one 44px row on phones. */
+.route-sheet-steps { display: flex; width: 100%; margin: 0 0 14px; }
+.route-sheet-steps .t-seg-btn { flex: 1; }
+
+.route-sheet-field + .route-sheet-field { margin-top: 14px; }
+/* The exit's own Single result shares the label line, so the user sees why a chain is needed. */
+.route-sheet-label-row { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 2px 12px; margin-bottom: 6px; }
+.route-sheet-label-row .route-sheet-label { margin: 0; }
+.route-sheet-direct { color: var(--readable-muted); font-size: var(--font-xs); }
+.route-sheet-direct[data-state="working"] .route-sheet-direct-state { color: var(--success); }
+.route-sheet-direct[data-state="unstable"] .route-sheet-direct-state { color: var(--warn); }
+.route-sheet-direct:is([data-state="failed"], [data-state="unsupported"]) .route-sheet-direct-state { color: var(--danger); }
+
+.route-sheet-hint, .route-sheet-next, .route-sheet-wait, .route-sheet-busy-note { margin: 10px 0 0; max-width: 52ch; }
+.route-link { appearance: none; margin: 0; padding: 0; border: 0; background: transparent; color: var(--app-fg);
+  font: inherit; text-decoration: underline dotted; text-underline-offset: 3px; cursor: pointer; }
+.route-link:focus-visible, .route-row-chain:focus-visible { outline: var(--focus-width) solid var(--focus-color); outline-offset: 2px; }
+
+.route-list { margin: 8px 0 0; padding: 0; list-style: none; }
+/* Reserve the action column so a verdict can reveal Apply without rewrapping the name. */
+.route-row-actions { grid-column: 2; grid-row: 1 / span 2; display: flex; flex-direction: column; align-items: flex-end;
+  justify-content: center; gap: 2px; }
+.route-row-chain { appearance: none; min-height: 32px; margin: 0; padding: 0 4px; border: 0; background: transparent;
+  color: var(--readable-muted); font: inherit; font-size: var(--font-xs); white-space: nowrap; cursor: pointer;
+  text-decoration: underline dotted; text-underline-offset: 3px; }
+.route-row-chain[aria-disabled="true"] { color: var(--muted); text-decoration: none; cursor: not-allowed; }
+@media (hover: hover) { .route-row-chain:hover:not([aria-disabled="true"]) { color: var(--app-fg); } }
+
+/* Choosing locations: the failover whitelist's check squares, one 44px row each. */
+.route-pick { margin-top: 10px; }
+.route-pick-bar { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 0 12px; padding: 6px 0;
+  border-top: 1px dashed var(--divider); font-size: var(--font-xs); }
+.route-pick-presets { grid-column: 1; grid-row: 2; }
+.route-pick-count { color: var(--app-fg); font-variant-numeric: tabular-nums; }
+.route-pick-presets { color: var(--readable-muted); }
+.route-pick-presets button { appearance: none; min-height: 32px; padding: 0 2px; border: 0; background: transparent; color: inherit;
+  font: inherit; text-decoration: underline dotted; text-underline-offset: 3px; cursor: pointer; }
+.route-pick-done.t-btn { grid-column: 2; grid-row: 1 / span 2; margin: 0; }
+.route-pick-list { margin: 0; padding: 0; list-style: none; }
+.route-pick-presets button[aria-disabled="true"], .route-pick-row:has([aria-disabled="true"]) {
+  color: var(--muted); cursor: not-allowed;
+}
+.route-pick-row { position: relative; display: grid; grid-template-columns: 18px minmax(0, 1fr) auto; align-items: center; gap: 10px;
+  min-height: 44px; border-top: 1px dashed var(--divider); cursor: pointer; }
+.route-pick-input { position: absolute; left: 0; width: 18px; height: 18px; margin: 0; opacity: 0; cursor: pointer; }
+.route-pick-row:has(.route-pick-input:focus-visible) { outline: var(--focus-width) solid var(--focus-color); outline-offset: 2px; }
+.route-pick-row:hover .wl-check:not(.on) { border-color: var(--accent); }
+.route-pick-name { min-width: 0; overflow-wrap: anywhere; }
+.route-pick-last { color: var(--readable-muted); font-size: var(--font-xs); white-space: nowrap; }
+.route-pick-last[data-state="working"] { color: var(--success); }
+.route-pick-last[data-state="unstable"] { color: var(--warn); }
+.route-pick-last:is([data-state="failed"], [data-state="unsupported"]) { color: var(--danger); }
+
+/* Entries outside the chosen scope keep earlier results and the reason they were skipped. */
+.route-other { margin-top: 14px; border-top: 1px dashed var(--divider); font-size: var(--font-sm); }
+.route-other > summary { display: flex; align-items: center; gap: 6px; min-height: 40px; color: var(--readable-muted);
+  font-size: var(--font-xs); cursor: pointer; list-style: none; }
+.route-other > summary::-webkit-details-marker { display: none; }
+.route-other[open] > summary svg { transform: rotate(180deg); }
+.route-other .route-list { margin-top: 0; }
+.route-other-action { margin: 8px 0 4px; }
+
+/* Exit menu: the direct result reads as a status, not as a code. */
+.route-sheet-menu .menu-option[data-state="working"] .choice-description { color: var(--success); }
+.route-sheet-menu .menu-option[data-state="unstable"] .choice-description { color: var(--warn); }
+.route-sheet-menu .menu-option:is([data-state="failed"], [data-state="unsupported"]) .choice-description { color: var(--danger); }
+
+@media (max-width: 640px) {
+  .route-sites { margin-bottom: 10px; }
+  .route-sheet-field + .route-sheet-field { margin-top: 10px; }
+  .route-sheet-report { min-height: var(--control-touch); margin-top: 10px; }
+  .route-sheet-steps { margin-bottom: 10px; }
+  .route-row-chain, .route-pick-presets button { min-height: var(--control-touch); }
+  .route-row-actions { gap: 0; }
+  .route-pick-row { min-height: var(--control-touch); }
+  .route-other > summary { min-height: var(--control-touch); }
+}
+
+/* Shared test sites can be edited in place. */
+.route-sites { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; column-gap: 10px;
+  margin: 0 0 14px; padding: 4px 0; border-block: 1px dashed var(--divider); }
+.route-sites .route-sheet-label { margin: 0; white-space: nowrap; }
+.route-sites-hosts { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: var(--font-xs); }
+.route-sites-edit.t-btn { margin: 0; }
+.route-sites[data-editing] { display: block; padding: 10px 0 12px; }
+.route-sites[data-editing] .route-sheet-label { margin-bottom: 4px; }
+.route-sites-note { margin: 0 0 10px; max-width: 56ch; }
+.route-sites-actions { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.route-sites-actions .t-btn { margin: 0; }
+.route-sites-actions [data-marker="route-sites-cancel"] { margin-left: auto; }
+@media (max-width: 640px) {
+  .route-sites-edit.t-btn, .route-sites-edit.t-btn:hover { min-height: var(--control-touch); padding-inline: 4px;
+    border-color: transparent; background: transparent; }
+}
+@media (max-width: 640px) {
+  .route-sheet-steps .t-seg-btn { min-height: var(--control-touch); }
+  .route-sites { margin-bottom: 10px; }
+}

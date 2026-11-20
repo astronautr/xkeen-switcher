@@ -1,0 +1,118 @@
+/* Preserve the original upper dashboard; audit improvements start at Locations. */
+.modal-operation-summary { color: var(--muted); font-size: var(--font-sm); line-height: 1.5; }
+.scroll > .t-head, .scroll > .subscription-panel,
+.scroll > .row-split, .scroll > .pending-config {
+  --muted: var(--dashboard-top-muted);
+  --control-border: var(--dashboard-top-control-border);
+  --divider: var(--dashboard-top-divider);
+  --success: var(--dashboard-top-success);
+  --warn: var(--dashboard-top-warn);
+  --failover: var(--dashboard-top-failover);
+}
+.scroll > .row-split .t-note { font-size: var(--dashboard-top-meta-font); }
+/* Mobile layout over the shared dashboard components. */
+@media (max-width: 640px) {
+  html { scrollbar-gutter: auto; }
+  body.mobile-dashboard-home #root { padding: calc(12px + env(safe-area-inset-top)) 16px calc(88px + env(safe-area-inset-bottom)); overflow: visible; }
+  .mobile-dashboard-home .app { padding: 0; }
+  .mobile-dashboard-home .t-head { flex-wrap: nowrap; gap: 6px; margin-bottom: 20px; height: 44px; }
+  .mobile-dashboard-home .t-head .brand { font-size: 13px; gap: 6px; min-width: 0; white-space: nowrap; }
+  .mobile-dashboard-home .brand-ico { width: 20px; height: 20px; flex-basis: 20px; }
+  .mobile-dashboard-home .t-head-right { width: auto; flex-wrap: nowrap; gap: 2px; }
+  .mobile-dashboard-home .mobile-icon-button { display: inline-flex; align-items: center; justify-content: center; width: 44px; min-width: 44px; height: 44px; padding: 0; margin: 0; border: 0; color: var(--app-fg); background: transparent; }
+  .mobile-dashboard-home .mobile-icon-button::before, .mobile-dashboard-home .mobile-icon-button::after { content: none; }
+  .mobile-dashboard-home .mobile-icon-button:hover { color: var(--accent); background: var(--surface-2); }
+  .mobile-ui-icon { display: block; width: 20px; height: 20px; flex: 0 0 20px; }
+  .mobile-dashboard-home .subscription-panel { padding: 4px 10px; margin-bottom: 14px; }
+  .mobile-dashboard-home .subscription-row { gap: 8px; }
+  .mobile-dashboard-home .subscription-toggle { min-height: 48px; gap: 6px; }
+  .mobile-dashboard-home .subscription-meta { font-size: var(--dashboard-top-meta-font); gap: 4px 10px; }
+  .mobile-dashboard-home .subscription-editor input { font-size: 16px; }
+  .mobile-dashboard-home .row-split { display: block; }
+  .mobile-dashboard-home .row-split > .power-box { min-height: 0; padding: 10px 12px 0; margin-bottom: 0; }
+  .mobile-dashboard-home .mobile-power-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 44px; }
+  .mobile-dashboard-home .power-status { margin: 0; gap: 7px; }
+  .mobile-dashboard-home .power-label { font-size: 12px; }
+  .mobile-dashboard-home .power-btn.t-btn { width: auto; padding: 6px 8px; font-size: 12px; border-color: transparent; }
+  .mobile-dashboard-home .outbound-box { border: 0; background: none; padding: 0; margin: 0; }
+  .mobile-dashboard-home .outbound-box > .box-title { display: none; }
+  .mobile-dashboard-home .t-active-main { margin: 4px 0 0; gap: 12px; min-height: 54px; align-items: center; }
+  .mobile-active-identity { display: flex; align-items: center; flex-wrap: wrap; gap: 7px; min-width: 0; max-width: calc(100% - 52px); }
+  .mobile-dashboard-home [data-marker="active-name"] { font-size: 23px; line-height: 1.3; overflow-wrap: anywhere; }
+  .mobile-active-flag { font-size: 22px; line-height: 1; }
+  .mobile-dashboard-home .t-active-main .tier { margin: 0; font-size: 12px; }
+  .mobile-dashboard-home .outbound-scope { margin-top: 8px; font-size: var(--dashboard-top-meta-font); }
+  .mobile-dashboard-home .outbound-default { font-size: 12px; margin-top: 10px; padding: 9px 0; }
+  .mobile-dashboard-home .outbound-check-scope { font-size: var(--dashboard-top-meta-font); margin: 12px 0 4px; }
+  .mobile-dashboard-home .power-wave-slot { flex: 1 1 0; width: 0; min-width: 40px; min-height: 0; height: 54px; margin: 0; border: 0; }
+  .mobile-dashboard-home .power-wave { inset: 0; height: 100%; }
+  .mobile-active-meta { display: flex; flex-wrap: wrap; gap: 4px 10px; color: var(--readable-muted); font-size: var(--dashboard-top-meta-font); line-height: 1.5; margin-top: 3px; }
+  .mobile-route-status { margin-top: 12px; font-size: 12px; line-height: 1.5; color: var(--readable-muted); }
+  .mobile-route-status.ok { color: var(--success); }
+  .mobile-route-status.fail { color: var(--danger); }
+  .mobile-dashboard-home .route-check { display: grid; grid-template-columns: 1fr auto; gap: 0 8px; margin-top: 12px; padding-top: 0; }
+  .mobile-dashboard-home .route-check > .t-btn { justify-self: start; min-height: 44px; margin: 0 0 0 -8px; padding: 6px 8px; font-size: 12px; border: 0; }
+  .mobile-connection-details { display: contents; }
+  .mobile-details-toggle { display: flex; grid-column: 2; align-items: center; gap: 3px; list-style: none; cursor: pointer; min-height: 44px; font-size: 12px; color: var(--readable-muted); }
+  .mobile-details-toggle::-webkit-details-marker { display: none; }
+  .mobile-details-toggle::before { content: "["; }
+  .mobile-details-toggle::after { content: "]"; }
+  .mobile-details-toggle .mobile-ui-icon { width: 12px; height: 12px; flex-basis: 12px; }
+  .mobile-connection-details[open] .mobile-details-toggle .mobile-ui-icon { transform: rotate(90deg); }
+  .mobile-details-body { grid-column: 1 / -1; padding: 12px 0; border-top: 1px dashed var(--divider); }
+  .mobile-connection-details:not([open]) .mobile-details-body { display: none; }
+  .mobile-dashboard-home .t-active-kv { font-size: 12px; gap: 6px 12px; }
+  .mobile-dashboard-home .route-check-result, .mobile-dashboard-home .route-check-note { font-size: 12px; margin-top: 12px; }
+  .mobile-dashboard-home .route-edit-btn { min-height: 44px; font-size: 12px; }
+  .mobile-dashboard-home .power-caption { margin: 0; font-size: var(--dashboard-top-meta-font); }
+  .mobile-dashboard-home .scroll > .pending-config { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 10px; border: 0; margin: 0 0 14px; padding: 10px 0; min-height: 68px; }
+  .mobile-dashboard-home .pending-config-copy { font-size: var(--dashboard-top-meta-font); line-height: 1.5; }
+  .mobile-dashboard-home .pending-config-detail { font-size: var(--dashboard-top-meta-font); }
+  .mobile-dashboard-home .pending-config .pending-config-btn { min-width: 0; padding: 6px 9px; min-height: 44px; font-size: 12px; }
+  .mobile-dashboard-home .scroll > .pending-config.optional-update { row-gap: 0; }
+  .mobile-dashboard-home .optional-update .pending-config-copy { display: contents; }
+  .mobile-dashboard-home .optional-update .pending-config-copy b { grid-column: 1 / -1; font-size: var(--dashboard-top-meta-font); line-height: 1.5; }
+  .mobile-dashboard-home .optional-update .pending-config-detail { color: var(--readable-muted); }
+}
+
+/* Accessible selection controls and device rows keep the audit improvements. */
+@media (max-width: 720px) {
+  .mobile-dashboard-home .locations-box { padding: var(--space-2) var(--space-3); }
+  .mobile-dashboard-home .main-composer { margin-top: var(--space-2); }
+  .mobile-dashboard-home .main-mode { width: 100%; }
+  .mobile-dashboard-home .main-mode .t-seg-btn { flex: 1; min-height: var(--control-touch); }
+  .mobile-dashboard-home .t-list { margin-top: var(--space-1); }
+  .mobile-dashboard-home .t-row .name { white-space: normal; font-size: var(--font-md); line-height: 1.4; }
+  .mobile-dashboard-home .t-row .code, .mobile-dashboard-home .wl-pos { font-size: var(--font-xs); }
+  .mobile-dashboard-home .t-row .health { min-width: 0; font-size: var(--font-xs); }
+  .mobile-dashboard-home .locations-box .loc-select {
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas: "name name" "meta health";
+    gap: var(--space-1); min-height: var(--control-touch); padding-block: var(--space-2);
+  }
+  .mobile-dashboard-home .locations-box .health { justify-content: flex-end; }
+  .mobile-dashboard-home .locations-box .loc-meta { display: inline-flex; flex-wrap: wrap; gap: 4px 5px; }
+  .mobile-dashboard-home .loc-meta .proto-badge { flex: none; }
+  .mobile-dashboard-home .loc-meta .code { min-width: 0; }
+  .mobile-dashboard-home .loc-select > .caret { display: none; }
+  .mobile-dashboard-home .probe-btn { min-width: var(--control-touch); min-height: var(--control-touch); }
+  .mobile-dashboard-home .check-all-btn { min-height: var(--control-touch); font-size: var(--font-xs); }
+  .mobile-dashboard-home .chain-fields { gap: var(--space-2); }
+  .mobile-dashboard-home .devices-panel { --device-control-height: var(--control-touch); --device-icon-width: var(--control-touch); }
+  .mobile-dashboard-home .device-name { font-size: var(--font-sm); }
+  .mobile-dashboard-home .device-detail, .mobile-dashboard-home .device-registration, .mobile-dashboard-home .policy-hint { font-size: var(--font-xs); }
+  .mobile-dashboard-home .devices-toggle { min-height: var(--control-touch); }
+  .mobile-dashboard-home .main-composer { padding: 0; }
+  .mobile-dashboard-home .main-mode { margin-bottom: var(--space-1); }
+  .mobile-dashboard-home .main-mode .t-seg-btn { white-space: nowrap; padding-inline: var(--space-1); font-size: var(--font-xs); }
+}
+
+@media (max-width: 360px) {
+  .mobile-dashboard-home .t-head .brand { font-size: 12px; gap: 4px; }
+  .mobile-dashboard-home .brand-ico { width: 18px; height: 18px; flex-basis: 18px; }
+  .mobile-dashboard-home .t-head-right { gap: 0; }
+  body.mobile-dashboard-home #root { padding-left: 12px; padding-right: 12px; }
+  .mobile-dashboard-home .box { padding-left: 10px; padding-right: 10px; }
+  .mobile-dashboard-home .optional-update .pending-config-detail { grid-column: 1 / -1; }
+  .mobile-dashboard-home .pending-config.optional-update .pending-config-btn { grid-column: 1 / -1; justify-self: end; }
+}

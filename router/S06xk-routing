@@ -1,0 +1,6 @@
+#!/bin/sh
+# Complete recovery after S05xkeen has started the restored configuration.
+case "${1:-start}" in
+  start) /opt/bin/xk-routing boot-finish;;
+  stop) :;;
+esac
